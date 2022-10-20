@@ -1,0 +1,75 @@
+//
+//  MxPrefixHeader.pch
+//  MxDarwBoard
+//
+//  Created by liuyalu on 2022/2/15.
+//
+
+#ifndef MxPrefixHeader_pch
+#define MxPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+//#define VERSION_APPSTORE // AppStore版本需要打开
+/*appstore版本的部分宏控  一 */
+#ifdef VERSION_APPSTORE
+// 关闭LOG
+#define DLog(...)
+#define MDLog(fmt, ...)
+#else
+// 打开LOG
+#define DLog(fmt, ...)   NSLog((@" " fmt), ##__VA_ARGS__);
+
+#define MDLog(fmt, ...)   NSLog((@"\n[File: %s]\n" "[Function: %s]\n" "[Line: %d]\n BWNSLog: \n" fmt), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);//更详细的log
+
+#endif
+
+#define DEVICE_IS_IPHONE_X \
+({BOOL isPhoneX = NO;\
+if (@available(iOS 11.0, *)) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
+#define Screen_WIDTH   [[UIScreen mainScreen] bounds].size.width
+#define Screen_HEIGHT  [[UIScreen mainScreen] bounds].size.height
+#define NAV_HEIGHT (DEVICE_IS_IPHONE_X ? 88 : 64)
+#define TABBAR_HEIGHT (DEVICE_IS_IPHONE_X ? 34 : 0)
+#define VIEW_BOTTOM_AREA_HEIGHT (DEVICE_IS_IPHONE_X ? 34 : 0)
+#define IPHONE_X_BOTTOM_AREA_HEIGHT 34
+/*** 屏幕适配 ***/
+#define FIT_TO_IPHONE5_VALUE(x) ceil(Screen_WIDTH * x / 320)
+#define FIT_TO_IPHONE6_VALUE(x) ceil(Screen_WIDTH * x / 375)//iphone x 适用
+#define FIT_TO_PLUS_VALUE(x) ceil(Screen_WIDTH * x / 415)
+//横屏的ipad6   2048*1536
+#define FIT_TO_IPAD_HOR_VALUE(x) ceil(Screen_WIDTH * x / 1024)
+#define FIT_TO_IPAD_VER_VALUE(x) ceil(Screen_HEIGHT * x / 768)
+
+#define kAdaptationCoefficient ([[UIScreen mainScreen] bounds].size.width)/375.0
+
+/*** 屏幕适配Px ***/
+#define PX_FIT_TO_IPHONE5_VALUE(x) (x)/2.0*(Screen_WIDTH/320)
+#define PX_FIT_TO_IPHONE6_VALUE(x) (x)/2.0*(Screen_WIDTH/375)//iphone x 适用
+#define PX_FIT_TO_PLUS_VALUE(x) (x)/2.0*(Screen_WIDTH/415)
+
+#define RGBA(R/*红*/, G/*绿*/, B/*蓝*/, A/*透明*/) \
+[UIColor colorWithRed:R/255.f green:G/255.f blue:B/255.f alpha:A]
+
+#define DrawBoardBaseViewY FIT_TO_IPAD_VER_VALUE(150)
+#define DrawBoardBaseViewH FIT_TO_IPAD_VER_VALUE(600)
+#define DrawBoardBaseViewX FIT_TO_IPAD_VER_VALUE(210)
+
+#define UIColorFromRGB(rgbValue)                             [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#define UIColorWithAlphaFromRGB(rgbValue , alphaValue)             [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:alphaValue]
+#define WEAK_SELF __weak typeof(self) weakSelf = self
+
+
+#define DefaultBaseColor UIColorWithAlphaFromRGB(0x767676, 1)
+
+#import "MBProgressHUD+LMJ.h"
+
+#define TimeInterval 0.21f
+#define MseeageAccount 1/TimeInterval
+
+#define DrawModelType @"DrawModelType"
+
+#endif /* MxPrefixHeader_pch */

@@ -1,0 +1,1299 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB15242E287670B200BF7C3C /* MxCountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB15242D287670B200BF7C3C /* MxCountDownLabel.m */; };
+		FB1524312876900200BF7C3C /* MxMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1524302876900200BF7C3C /* MxMessageManager.m */; };
+		FB2FD9322892202F0051E2C6 /* UILabel+Space.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2FD9312892202F0051E2C6 /* UILabel+Space.m */; };
+		FB622F0828816D8800DEDE85 /* MBProgressHUD+LMJ.m in Sources */ = {isa = PBXBuildFile; fileRef = FB622F0728816D8800DEDE85 /* MBProgressHUD+LMJ.m */; };
+		FB849A1E2886B0DE004778DA /* MxTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = FB849A1D2886B0DE004778DA /* MxTimer.m */; };
+		FB849A212888FA53004778DA /* MxNoGroupDeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB849A202888FA53004778DA /* MxNoGroupDeviceListViewController.m */; };
+		FB849A24288A8A2E004778DA /* MxDebugDrawBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB849A23288A8A2E004778DA /* MxDebugDrawBoardViewController.m */; };
+		FB879C9527BB8CB500107673 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879C9427BB8CB500107673 /* AppDelegate.m */; };
+		FB879C9B27BB8CB500107673 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879C9A27BB8CB500107673 /* ViewController.m */; };
+		FB879C9E27BB8CB600107673 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB879C9C27BB8CB600107673 /* Main.storyboard */; };
+		FB879CA027BB8CB700107673 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB879C9F27BB8CB700107673 /* Assets.xcassets */; };
+		FB879CA327BB8CB700107673 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB879CA127BB8CB700107673 /* LaunchScreen.storyboard */; };
+		FB879CA627BB8CB700107673 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879CA527BB8CB700107673 /* main.m */; };
+		FB879CB027BB8CB700107673 /* MxDarwBoardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879CAF27BB8CB700107673 /* MxDarwBoardTests.m */; };
+		FB879CBA27BB8CB700107673 /* MxDarwBoardUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879CB927BB8CB700107673 /* MxDarwBoardUITests.m */; };
+		FB879CBC27BB8CB700107673 /* MxDarwBoardUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879CBB27BB8CB700107673 /* MxDarwBoardUITestsLaunchTests.m */; };
+		FB879CD127BBA21500107673 /* MxDrawBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879CD027BBA21500107673 /* MxDrawBoardViewController.m */; };
+		FB879CD627BBAAD800107673 /* MxDrawBoardBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879CD527BBAAD800107673 /* MxDrawBoardBaseView.m */; };
+		FB879CDE27BCA43A00107673 /* MxColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879CDD27BCA43A00107673 /* MxColorPicker.m */; };
+		FB879CE127BCA45600107673 /* MxColorWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879CE027BCA45600107673 /* MxColorWheelView.m */; };
+		FB879CE427BCA47200107673 /* MxColorSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879CE327BCA47200107673 /* MxColorSlider.m */; };
+		FB879CE727BCA8E200107673 /* MxPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879CE627BCA8E200107673 /* MxPickerViewController.m */; };
+		FB879D0527BDE3F400107673 /* MxDrawBoardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879D0427BDE3F400107673 /* MxDrawBoardManager.m */; };
+		FB879D0827BDF4E500107673 /* MXDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879D0727BDF4E500107673 /* MXDrawView.m */; };
+		FB879D0B27BDF53100107673 /* MxBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879D0A27BDF53100107673 /* MxBezierPath.m */; };
+		FB879D1627BE3B7900107673 /* MxPointModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879D1527BE3B7900107673 /* MxPointModel.m */; };
+		FB879D1C27BF9BDB00107673 /* UIView+ColorOfPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879D1B27BF9BDB00107673 /* UIView+ColorOfPoint.m */; };
+		FB879D1F27C3313A00107673 /* MxLightModelView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB879D1E27C3313A00107673 /* MxLightModelView.m */; };
+		FB88CC4027C77478001B9A9A /* MxDrawBoardBottomSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC3F27C77478001B9A9A /* MxDrawBoardBottomSetView.m */; };
+		FB88CC4327C7812B001B9A9A /* MxColorSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC4227C7812B001B9A9A /* MxColorSelectViewController.m */; };
+		FB88CC4627C86703001B9A9A /* MxCustomPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC4527C86703001B9A9A /* MxCustomPopoverBackgroundView.m */; };
+		FB88CC4D27C888FB001B9A9A /* DeveloperDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC4C27C888FB001B9A9A /* DeveloperDrawViewController.m */; };
+		FB88CC5027C8A6B3001B9A9A /* DeveloperNavigaSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC4F27C8A6B3001B9A9A /* DeveloperNavigaSetView.m */; };
+		FB88CC5327C8AB49001B9A9A /* DevelopManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC5227C8AB49001B9A9A /* DevelopManager.m */; };
+		FB88CC5627C8B023001B9A9A /* DevelopDrawBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC5527C8B023001B9A9A /* DevelopDrawBaseView.m */; };
+		FB88CC5927C8B452001B9A9A /* DevelopDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC5827C8B452001B9A9A /* DevelopDrawView.m */; };
+		FB88CC5C27C8C6A7001B9A9A /* MxDrawModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC5B27C8C6A7001B9A9A /* MxDrawModelViewController.m */; };
+		FB88CC5F27C8C918001B9A9A /* DarwModelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC5E27C8C918001B9A9A /* DarwModelViewCell.m */; };
+		FB88CC6227C8D76D001B9A9A /* DrawModelPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC6127C8D76D001B9A9A /* DrawModelPopoverBackgroundView.m */; };
+		FB88CC6527C8DDCA001B9A9A /* ProductModelView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC6427C8DDCA001B9A9A /* ProductModelView.m */; };
+		FB88CC6827CA18D1001B9A9A /* MxLockButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC6727CA18D1001B9A9A /* MxLockButton.m */; };
+		FB88CC7E27CCAD89001B9A9A /* MxMeshManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC7D27CCAD89001B9A9A /* MxMeshManager.m */; };
+		FB88CC8327CCAF69001B9A9A /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC8227CCAF69001B9A9A /* Test.swift */; };
+		FB88CC8827CCB698001B9A9A /* MxAddDeviceContoller.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC8727CCB698001B9A9A /* MxAddDeviceContoller.m */; };
+		FB88CC8C27CCBA3E001B9A9A /* MXProvisionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC8927CCBA3E001B9A9A /* MXProvisionViewController.m */; };
+		FB88CC9127CCBA4F001B9A9A /* MXBluetoothProvisionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC9027CCBA4F001B9A9A /* MXBluetoothProvisionModel.m */; };
+		FB88CC9427CCBAFC001B9A9A /* AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC9227CCBAFC001B9A9A /* AppInfo.m */; };
+		FB88CC9727CCC47D001B9A9A /* MxDeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC9627CCC47D001B9A9A /* MxDeviceListViewController.m */; };
+		FB88CC9A27CCCB51001B9A9A /* PlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC9927CCCB51001B9A9A /* PlanViewController.m */; };
+		FB88CCA027CE1FB0001B9A9A /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CC9F27CE1FB0001B9A9A /* LocationModel.m */; };
+		FB88CCA427CF76E5001B9A9A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FB88CCA227CF76E5001B9A9A /* MBProgressHUD.m */; };
+		FBA03455285862930083A166 /* MxShowImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBA03454285862930083A166 /* MxShowImageView.m */; };
+		FBA03457285883080083A166 /* product.plist in Resources */ = {isa = PBXBuildFile; fileRef = FBA03456285883080083A166 /* product.plist */; };
+		FBA0345F28588D9E0083A166 /* 20220226141320628.png in Resources */ = {isa = PBXBuildFile; fileRef = FBA0345928588D9E0083A166 /* 20220226141320628.png */; };
+		FBA0346028588D9E0083A166 /* 20220226141306909.png in Resources */ = {isa = PBXBuildFile; fileRef = FBA0345A28588D9E0083A166 /* 20220226141306909.png */; };
+		FBA0346128588D9E0083A166 /* 20220226141251923.png in Resources */ = {isa = PBXBuildFile; fileRef = FBA0345B28588D9E0083A166 /* 20220226141251923.png */; };
+		FBA0346228588D9E0083A166 /* 20220226141256850.png in Resources */ = {isa = PBXBuildFile; fileRef = FBA0345C28588D9E0083A166 /* 20220226141256850.png */; };
+		FBA0346328588D9E0083A166 /* 20220226141314521.png in Resources */ = {isa = PBXBuildFile; fileRef = FBA0345D28588D9E0083A166 /* 20220226141314521.png */; };
+		FBA0346428588D9E0083A166 /* 20220226141301992.png in Resources */ = {isa = PBXBuildFile; fileRef = FBA0345E28588D9E0083A166 /* 20220226141301992.png */; };
+		FBE1B8102893B7EF005EFCE2 /* MeshSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE1B80A2893B71E005EFCE2 /* MeshSDK.framework */; };
+		FBE1B8112893B8CF005EFCE2 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE1B80E2893B71E005EFCE2 /* CryptoSwift.framework */; };
+		FBE1B8122893B8D3005EFCE2 /* nRFMeshProvision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE1B80C2893B71E005EFCE2 /* nRFMeshProvision.framework */; };
+		FBE6799C27D7284B000CDF03 /* UIColor+Turn.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE6799B27D7284B000CDF03 /* UIColor+Turn.m */; };
+		FBE679A627D87839000CDF03 /* UIImage+MxTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE679A527D87839000CDF03 /* UIImage+MxTool.m */; };
+		FBE679AA27D8927B000CDF03 /* DevelopShowImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE679A927D8927B000CDF03 /* DevelopShowImageViewController.m */; };
+		FBF6757927C60FD4000A1A7A /* MxDrawBoardSettingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF6757827C60FD4000A1A7A /* MxDrawBoardSettingView.m */; };
+		FBF6757C27C617FA000A1A7A /* MxDrawBoardNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF6757B27C617FA000A1A7A /* MxDrawBoardNavigationView.m */; };
+		FBF6758327C62196000A1A7A /* MxUploadImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF6758227C62196000A1A7A /* MxUploadImageManager.m */; };
+		FBF6758727C62D41000A1A7A /* TestImage01.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF6758627C62D41000A1A7A /* TestImage01.png */; };
+		FBF675AE27C7245E000A1A7A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FBF6758927C7245E000A1A7A /* LICENSE */; };
+		FBF675AF27C7245E000A1A7A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FBF6758A27C7245E000A1A7A /* README.md */; };
+		FBF675B027C7245E000A1A7A /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF6758D27C7245E000A1A7A /* UIProgressView+AFNetworking.m */; };
+		FBF675B127C7245E000A1A7A /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF6758F27C7245E000A1A7A /* UIRefreshControl+AFNetworking.m */; };
+		FBF675B227C7245E000A1A7A /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF6759227C7245E000A1A7A /* AFNetworkActivityIndicatorManager.m */; };
+		FBF675B327C7245E000A1A7A /* WKWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF6759527C7245E000A1A7A /* WKWebView+AFNetworking.m */; };
+		FBF675B427C7245E000A1A7A /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF6759727C7245E000A1A7A /* UIImageView+AFNetworking.m */; };
+		FBF675B527C7245E000A1A7A /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF6759A27C7245E000A1A7A /* UIButton+AFNetworking.m */; };
+		FBF675B627C7245E000A1A7A /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF6759B27C7245E000A1A7A /* UIActivityIndicatorView+AFNetworking.m */; };
+		FBF675B727C7245E000A1A7A /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF6759C27C7245E000A1A7A /* AFAutoPurgingImageCache.m */; };
+		FBF675B827C7245E000A1A7A /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF6759E27C7245E000A1A7A /* AFImageDownloader.m */; };
+		FBF675B927C7245E000A1A7A /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF675A427C7245E000A1A7A /* AFURLResponseSerialization.m */; };
+		FBF675BA27C7245E000A1A7A /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF675A527C7245E000A1A7A /* AFHTTPSessionManager.m */; };
+		FBF675BB27C7245E000A1A7A /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF675A727C7245E000A1A7A /* AFURLSessionManager.m */; };
+		FBF675BC27C7245E000A1A7A /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF675A827C7245E000A1A7A /* AFURLRequestSerialization.m */; };
+		FBF675BD27C7245E000A1A7A /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF675AA27C7245E000A1A7A /* AFNetworkReachabilityManager.m */; };
+		FBF675BE27C7245E000A1A7A /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF675AB27C7245E000A1A7A /* AFSecurityPolicy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB879CAC27BB8CB700107673 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB879C8827BB8CB500107673 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB879C8F27BB8CB500107673;
+			remoteInfo = MxDarwBoard;
+		};
+		FB879CB627BB8CB700107673 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB879C8827BB8CB500107673 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB879C8F27BB8CB500107673;
+			remoteInfo = MxDarwBoard;
+		};
+		FBE1B8092893B71E005EFCE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBE1B8032893B71E005EFCE2 /* MeshSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3B58AE2645075C0036504D;
+			remoteInfo = MeshSDK;
+		};
+		FBE1B80B2893B71E005EFCE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBE1B8032893B71E005EFCE2 /* MeshSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3B5C712645192E0036504D;
+			remoteInfo = nRFMeshProvision;
+		};
+		FBE1B80D2893B71E005EFCE2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FBE1B8032893B71E005EFCE2 /* MeshSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3BC91A275B6A8D00FBC8BF;
+			remoteInfo = CryptoSwift;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FB15242C287670B200BF7C3C /* MxCountDownLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxCountDownLabel.h; sourceTree = "<group>"; };
+		FB15242D287670B200BF7C3C /* MxCountDownLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxCountDownLabel.m; sourceTree = "<group>"; };
+		FB15242F2876900200BF7C3C /* MxMessageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxMessageManager.h; sourceTree = "<group>"; };
+		FB1524302876900200BF7C3C /* MxMessageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxMessageManager.m; sourceTree = "<group>"; };
+		FB2FD8E8288F9A510051E2C6 /* MxDrawBoardTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDrawBoardTestTests.m; sourceTree = "<group>"; };
+		FB2FD8F2288F9A510051E2C6 /* MxDrawBoardTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDrawBoardTestUITests.m; sourceTree = "<group>"; };
+		FB2FD8F4288F9A510051E2C6 /* MxDrawBoardTestUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDrawBoardTestUITestsLaunchTests.m; sourceTree = "<group>"; };
+		FB2FD9302892202F0051E2C6 /* UILabel+Space.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+Space.h"; sourceTree = "<group>"; };
+		FB2FD9312892202F0051E2C6 /* UILabel+Space.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Space.m"; sourceTree = "<group>"; };
+		FB622F0628816D8800DEDE85 /* MBProgressHUD+LMJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+LMJ.h"; sourceTree = "<group>"; };
+		FB622F0728816D8800DEDE85 /* MBProgressHUD+LMJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+LMJ.m"; sourceTree = "<group>"; };
+		FB849A1C2886B0DE004778DA /* MxTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxTimer.h; sourceTree = "<group>"; };
+		FB849A1D2886B0DE004778DA /* MxTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxTimer.m; sourceTree = "<group>"; };
+		FB849A1F2888FA53004778DA /* MxNoGroupDeviceListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxNoGroupDeviceListViewController.h; sourceTree = "<group>"; };
+		FB849A202888FA53004778DA /* MxNoGroupDeviceListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxNoGroupDeviceListViewController.m; sourceTree = "<group>"; };
+		FB849A22288A8A2E004778DA /* MxDebugDrawBoardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxDebugDrawBoardViewController.h; sourceTree = "<group>"; };
+		FB849A23288A8A2E004778DA /* MxDebugDrawBoardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDebugDrawBoardViewController.m; sourceTree = "<group>"; };
+		FB879C9027BB8CB500107673 /* MxDarwBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MxDarwBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB879C9327BB8CB500107673 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FB879C9427BB8CB500107673 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FB879C9927BB8CB500107673 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FB879C9A27BB8CB500107673 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FB879C9D27BB8CB600107673 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB879C9F27BB8CB700107673 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB879CA227BB8CB700107673 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FB879CA427BB8CB700107673 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB879CA527BB8CB700107673 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FB879CAB27BB8CB700107673 /* MxDarwBoardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MxDarwBoardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB879CAF27BB8CB700107673 /* MxDarwBoardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDarwBoardTests.m; sourceTree = "<group>"; };
+		FB879CB527BB8CB700107673 /* MxDarwBoardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MxDarwBoardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB879CB927BB8CB700107673 /* MxDarwBoardUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDarwBoardUITests.m; sourceTree = "<group>"; };
+		FB879CBB27BB8CB700107673 /* MxDarwBoardUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDarwBoardUITestsLaunchTests.m; sourceTree = "<group>"; };
+		FB879CCF27BBA21500107673 /* MxDrawBoardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxDrawBoardViewController.h; sourceTree = "<group>"; };
+		FB879CD027BBA21500107673 /* MxDrawBoardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDrawBoardViewController.m; sourceTree = "<group>"; };
+		FB879CD227BBA76800107673 /* MxPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxPrefixHeader.pch; sourceTree = "<group>"; };
+		FB879CD427BBAAD800107673 /* MxDrawBoardBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxDrawBoardBaseView.h; sourceTree = "<group>"; };
+		FB879CD527BBAAD800107673 /* MxDrawBoardBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDrawBoardBaseView.m; sourceTree = "<group>"; };
+		FB879CDC27BCA43A00107673 /* MxColorPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxColorPicker.h; sourceTree = "<group>"; };
+		FB879CDD27BCA43A00107673 /* MxColorPicker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxColorPicker.m; sourceTree = "<group>"; };
+		FB879CDF27BCA45600107673 /* MxColorWheelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxColorWheelView.h; sourceTree = "<group>"; };
+		FB879CE027BCA45600107673 /* MxColorWheelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxColorWheelView.m; sourceTree = "<group>"; };
+		FB879CE227BCA47200107673 /* MxColorSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxColorSlider.h; sourceTree = "<group>"; };
+		FB879CE327BCA47200107673 /* MxColorSlider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxColorSlider.m; sourceTree = "<group>"; };
+		FB879CE527BCA8E200107673 /* MxPickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxPickerViewController.h; sourceTree = "<group>"; };
+		FB879CE627BCA8E200107673 /* MxPickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxPickerViewController.m; sourceTree = "<group>"; };
+		FB879D0327BDE3F400107673 /* MxDrawBoardManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxDrawBoardManager.h; sourceTree = "<group>"; };
+		FB879D0427BDE3F400107673 /* MxDrawBoardManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDrawBoardManager.m; sourceTree = "<group>"; };
+		FB879D0627BDF4E500107673 /* MXDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MXDrawView.h; sourceTree = "<group>"; };
+		FB879D0727BDF4E500107673 /* MXDrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MXDrawView.m; sourceTree = "<group>"; };
+		FB879D0927BDF53100107673 /* MxBezierPath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxBezierPath.h; sourceTree = "<group>"; };
+		FB879D0A27BDF53100107673 /* MxBezierPath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxBezierPath.m; sourceTree = "<group>"; };
+		FB879D1427BE3B7900107673 /* MxPointModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxPointModel.h; sourceTree = "<group>"; };
+		FB879D1527BE3B7900107673 /* MxPointModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxPointModel.m; sourceTree = "<group>"; };
+		FB879D1A27BF9BDB00107673 /* UIView+ColorOfPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ColorOfPoint.h"; sourceTree = "<group>"; };
+		FB879D1B27BF9BDB00107673 /* UIView+ColorOfPoint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+ColorOfPoint.m"; sourceTree = "<group>"; };
+		FB879D1D27C3313A00107673 /* MxLightModelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxLightModelView.h; sourceTree = "<group>"; };
+		FB879D1E27C3313A00107673 /* MxLightModelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxLightModelView.m; sourceTree = "<group>"; };
+		FB88CC3E27C77478001B9A9A /* MxDrawBoardBottomSetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxDrawBoardBottomSetView.h; sourceTree = "<group>"; };
+		FB88CC3F27C77478001B9A9A /* MxDrawBoardBottomSetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDrawBoardBottomSetView.m; sourceTree = "<group>"; };
+		FB88CC4127C7812B001B9A9A /* MxColorSelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxColorSelectViewController.h; sourceTree = "<group>"; };
+		FB88CC4227C7812B001B9A9A /* MxColorSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxColorSelectViewController.m; sourceTree = "<group>"; };
+		FB88CC4427C86703001B9A9A /* MxCustomPopoverBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxCustomPopoverBackgroundView.h; sourceTree = "<group>"; };
+		FB88CC4527C86703001B9A9A /* MxCustomPopoverBackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxCustomPopoverBackgroundView.m; sourceTree = "<group>"; };
+		FB88CC4B27C888FB001B9A9A /* DeveloperDrawViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeveloperDrawViewController.h; sourceTree = "<group>"; };
+		FB88CC4C27C888FB001B9A9A /* DeveloperDrawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeveloperDrawViewController.m; sourceTree = "<group>"; };
+		FB88CC4E27C8A6B3001B9A9A /* DeveloperNavigaSetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeveloperNavigaSetView.h; sourceTree = "<group>"; };
+		FB88CC4F27C8A6B3001B9A9A /* DeveloperNavigaSetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeveloperNavigaSetView.m; sourceTree = "<group>"; };
+		FB88CC5127C8AB49001B9A9A /* DevelopManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DevelopManager.h; sourceTree = "<group>"; };
+		FB88CC5227C8AB49001B9A9A /* DevelopManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DevelopManager.m; sourceTree = "<group>"; };
+		FB88CC5427C8B023001B9A9A /* DevelopDrawBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DevelopDrawBaseView.h; sourceTree = "<group>"; };
+		FB88CC5527C8B023001B9A9A /* DevelopDrawBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DevelopDrawBaseView.m; sourceTree = "<group>"; };
+		FB88CC5727C8B452001B9A9A /* DevelopDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DevelopDrawView.h; sourceTree = "<group>"; };
+		FB88CC5827C8B452001B9A9A /* DevelopDrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DevelopDrawView.m; sourceTree = "<group>"; };
+		FB88CC5A27C8C6A7001B9A9A /* MxDrawModelViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxDrawModelViewController.h; sourceTree = "<group>"; };
+		FB88CC5B27C8C6A7001B9A9A /* MxDrawModelViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDrawModelViewController.m; sourceTree = "<group>"; };
+		FB88CC5D27C8C918001B9A9A /* DarwModelViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DarwModelViewCell.h; sourceTree = "<group>"; };
+		FB88CC5E27C8C918001B9A9A /* DarwModelViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DarwModelViewCell.m; sourceTree = "<group>"; };
+		FB88CC6027C8D76D001B9A9A /* DrawModelPopoverBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawModelPopoverBackgroundView.h; sourceTree = "<group>"; };
+		FB88CC6127C8D76D001B9A9A /* DrawModelPopoverBackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawModelPopoverBackgroundView.m; sourceTree = "<group>"; };
+		FB88CC6327C8DDCA001B9A9A /* ProductModelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductModelView.h; sourceTree = "<group>"; };
+		FB88CC6427C8DDCA001B9A9A /* ProductModelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductModelView.m; sourceTree = "<group>"; };
+		FB88CC6627CA18D1001B9A9A /* MxLockButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxLockButton.h; sourceTree = "<group>"; };
+		FB88CC6727CA18D1001B9A9A /* MxLockButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxLockButton.m; sourceTree = "<group>"; };
+		FB88CC7C27CCAD89001B9A9A /* MxMeshManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxMeshManager.h; sourceTree = "<group>"; };
+		FB88CC7D27CCAD89001B9A9A /* MxMeshManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxMeshManager.m; sourceTree = "<group>"; };
+		FB88CC7F27CCAF46001B9A9A /* MxDarwBoard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MxDarwBoard-Bridging-Header.h"; sourceTree = "<group>"; };
+		FB88CC8227CCAF69001B9A9A /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		FB88CC8627CCB698001B9A9A /* MxAddDeviceContoller.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxAddDeviceContoller.h; sourceTree = "<group>"; };
+		FB88CC8727CCB698001B9A9A /* MxAddDeviceContoller.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxAddDeviceContoller.m; sourceTree = "<group>"; };
+		FB88CC8927CCBA3E001B9A9A /* MXProvisionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXProvisionViewController.m; sourceTree = "<group>"; };
+		FB88CC8B27CCBA3E001B9A9A /* MXProvisionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXProvisionViewController.h; sourceTree = "<group>"; };
+		FB88CC8F27CCBA4F001B9A9A /* MXBluetoothProvisionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXBluetoothProvisionModel.h; sourceTree = "<group>"; };
+		FB88CC9027CCBA4F001B9A9A /* MXBluetoothProvisionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXBluetoothProvisionModel.m; sourceTree = "<group>"; };
+		FB88CC9227CCBAFC001B9A9A /* AppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppInfo.m; sourceTree = "<group>"; };
+		FB88CC9327CCBAFC001B9A9A /* AppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInfo.h; sourceTree = "<group>"; };
+		FB88CC9527CCC47D001B9A9A /* MxDeviceListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxDeviceListViewController.h; sourceTree = "<group>"; };
+		FB88CC9627CCC47D001B9A9A /* MxDeviceListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDeviceListViewController.m; sourceTree = "<group>"; };
+		FB88CC9827CCCB51001B9A9A /* PlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanViewController.h; sourceTree = "<group>"; };
+		FB88CC9927CCCB51001B9A9A /* PlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanViewController.m; sourceTree = "<group>"; };
+		FB88CC9E27CE1FB0001B9A9A /* LocationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationModel.h; sourceTree = "<group>"; };
+		FB88CC9F27CE1FB0001B9A9A /* LocationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationModel.m; sourceTree = "<group>"; };
+		FB88CCA227CF76E5001B9A9A /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		FB88CCA327CF76E5001B9A9A /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		FBA03453285862930083A166 /* MxShowImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxShowImageView.h; sourceTree = "<group>"; };
+		FBA03454285862930083A166 /* MxShowImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxShowImageView.m; sourceTree = "<group>"; };
+		FBA03456285883080083A166 /* product.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = product.plist; sourceTree = "<group>"; };
+		FBA0345928588D9E0083A166 /* 20220226141320628.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20220226141320628.png; sourceTree = "<group>"; };
+		FBA0345A28588D9E0083A166 /* 20220226141306909.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20220226141306909.png; sourceTree = "<group>"; };
+		FBA0345B28588D9E0083A166 /* 20220226141251923.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20220226141251923.png; sourceTree = "<group>"; };
+		FBA0345C28588D9E0083A166 /* 20220226141256850.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20220226141256850.png; sourceTree = "<group>"; };
+		FBA0345D28588D9E0083A166 /* 20220226141314521.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20220226141314521.png; sourceTree = "<group>"; };
+		FBA0345E28588D9E0083A166 /* 20220226141301992.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20220226141301992.png; sourceTree = "<group>"; };
+		FBE1B8032893B71E005EFCE2 /* MeshSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MeshSDK.xcodeproj; path = MeshSDK/MeshSDK.xcodeproj; sourceTree = "<group>"; };
+		FBE6799A27D7284B000CDF03 /* UIColor+Turn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Turn.h"; sourceTree = "<group>"; };
+		FBE6799B27D7284B000CDF03 /* UIColor+Turn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Turn.m"; sourceTree = "<group>"; };
+		FBE679A427D87839000CDF03 /* UIImage+MxTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+MxTool.h"; sourceTree = "<group>"; };
+		FBE679A527D87839000CDF03 /* UIImage+MxTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MxTool.m"; sourceTree = "<group>"; };
+		FBE679A827D8927B000CDF03 /* DevelopShowImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DevelopShowImageViewController.h; sourceTree = "<group>"; };
+		FBE679A927D8927B000CDF03 /* DevelopShowImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DevelopShowImageViewController.m; sourceTree = "<group>"; };
+		FBF6757727C60FD4000A1A7A /* MxDrawBoardSettingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxDrawBoardSettingView.h; sourceTree = "<group>"; };
+		FBF6757827C60FD4000A1A7A /* MxDrawBoardSettingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDrawBoardSettingView.m; sourceTree = "<group>"; };
+		FBF6757A27C617FA000A1A7A /* MxDrawBoardNavigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxDrawBoardNavigationView.h; sourceTree = "<group>"; };
+		FBF6757B27C617FA000A1A7A /* MxDrawBoardNavigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDrawBoardNavigationView.m; sourceTree = "<group>"; };
+		FBF6758127C62196000A1A7A /* MxUploadImageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxUploadImageManager.h; sourceTree = "<group>"; };
+		FBF6758227C62196000A1A7A /* MxUploadImageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxUploadImageManager.m; sourceTree = "<group>"; };
+		FBF6758627C62D41000A1A7A /* TestImage01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TestImage01.png; sourceTree = "<group>"; };
+		FBF6758927C7245E000A1A7A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		FBF6758A27C7245E000A1A7A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FBF6758C27C7245E000A1A7A /* WKWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WKWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		FBF6758D27C7245E000A1A7A /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
+		FBF6758E27C7245E000A1A7A /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		FBF6758F27C7245E000A1A7A /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		FBF6759027C7245E000A1A7A /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		FBF6759127C7245E000A1A7A /* AFImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFImageDownloader.h; sourceTree = "<group>"; };
+		FBF6759227C7245E000A1A7A /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		FBF6759327C7245E000A1A7A /* AFAutoPurgingImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFAutoPurgingImageCache.h; sourceTree = "<group>"; };
+		FBF6759427C7245E000A1A7A /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		FBF6759527C7245E000A1A7A /* WKWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WKWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		FBF6759627C7245E000A1A7A /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+		FBF6759727C7245E000A1A7A /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		FBF6759827C7245E000A1A7A /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		FBF6759927C7245E000A1A7A /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		FBF6759A27C7245E000A1A7A /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		FBF6759B27C7245E000A1A7A /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		FBF6759C27C7245E000A1A7A /* AFAutoPurgingImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFAutoPurgingImageCache.m; sourceTree = "<group>"; };
+		FBF6759D27C7245E000A1A7A /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		FBF6759E27C7245E000A1A7A /* AFImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageDownloader.m; sourceTree = "<group>"; };
+		FBF675A027C7245E000A1A7A /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		FBF675A127C7245E000A1A7A /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		FBF675A227C7245E000A1A7A /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		FBF675A327C7245E000A1A7A /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		FBF675A427C7245E000A1A7A /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		FBF675A527C7245E000A1A7A /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		FBF675A627C7245E000A1A7A /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		FBF675A727C7245E000A1A7A /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		FBF675A827C7245E000A1A7A /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		FBF675A927C7245E000A1A7A /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		FBF675AA27C7245E000A1A7A /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		FBF675AB27C7245E000A1A7A /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		FBF675AC27C7245E000A1A7A /* AFCompatibilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCompatibilityMacros.h; sourceTree = "<group>"; };
+		FBF675AD27C7245E000A1A7A /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB879C8D27BB8CB500107673 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBE1B8102893B7EF005EFCE2 /* MeshSDK.framework in Frameworks */,
+				FBE1B8112893B8CF005EFCE2 /* CryptoSwift.framework in Frameworks */,
+				FBE1B8122893B8D3005EFCE2 /* nRFMeshProvision.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB879CA827BB8CB700107673 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB879CB227BB8CB700107673 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB2FD8E7288F9A510051E2C6 /* MxDrawBoardTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB2FD8E8288F9A510051E2C6 /* MxDrawBoardTestTests.m */,
+			);
+			path = MxDrawBoardTestTests;
+			sourceTree = "<group>";
+		};
+		FB2FD8F1288F9A510051E2C6 /* MxDrawBoardTestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FB2FD8F2288F9A510051E2C6 /* MxDrawBoardTestUITests.m */,
+				FB2FD8F4288F9A510051E2C6 /* MxDrawBoardTestUITestsLaunchTests.m */,
+			);
+			path = MxDrawBoardTestUITests;
+			sourceTree = "<group>";
+		};
+		FB879C8727BB8CB500107673 = {
+			isa = PBXGroup;
+			children = (
+				FBE1B8032893B71E005EFCE2 /* MeshSDK.xcodeproj */,
+				FB879C9227BB8CB500107673 /* MxDarwBoard */,
+				FB879CAE27BB8CB700107673 /* MxDarwBoardTests */,
+				FB879CB827BB8CB700107673 /* MxDarwBoardUITests */,
+				FB2FD8E7288F9A510051E2C6 /* MxDrawBoardTestTests */,
+				FB2FD8F1288F9A510051E2C6 /* MxDrawBoardTestUITests */,
+				FB879C9127BB8CB500107673 /* Products */,
+				FBE1B80F2893B7EF005EFCE2 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FB879C9127BB8CB500107673 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB879C9027BB8CB500107673 /* MxDarwBoard.app */,
+				FB879CAB27BB8CB700107673 /* MxDarwBoardTests.xctest */,
+				FB879CB527BB8CB700107673 /* MxDarwBoardUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB879C9227BB8CB500107673 /* MxDarwBoard */ = {
+			isa = PBXGroup;
+			children = (
+				FB879C9327BB8CB500107673 /* AppDelegate.h */,
+				FB879C9427BB8CB500107673 /* AppDelegate.m */,
+				FB879C9927BB8CB500107673 /* ViewController.h */,
+				FB879C9A27BB8CB500107673 /* ViewController.m */,
+				FB879CCF27BBA21500107673 /* MxDrawBoardViewController.h */,
+				FB879CD027BBA21500107673 /* MxDrawBoardViewController.m */,
+				FB879D0327BDE3F400107673 /* MxDrawBoardManager.h */,
+				FB879D0427BDE3F400107673 /* MxDrawBoardManager.m */,
+				FB879CD227BBA76800107673 /* MxPrefixHeader.pch */,
+				FB88CC8227CCAF69001B9A9A /* Test.swift */,
+				FBF6758027C62138000A1A7A /* MxNetwork */,
+				FB879CDB27BCA41200107673 /* MxColorPicker */,
+				FB879CD327BBAA9D00107673 /* MxCustomView */,
+				FB88CC7B27CCAD55001B9A9A /* MxMeshManager */,
+				FBE679A027D877E5000CDF03 /* MxTool */,
+				FB88CC4A27C888AF001B9A9A /* Developer */,
+				FB879C9C27BB8CB600107673 /* Main.storyboard */,
+				FB879C9F27BB8CB700107673 /* Assets.xcassets */,
+				FBF6758627C62D41000A1A7A /* TestImage01.png */,
+				FB879CA127BB8CB700107673 /* LaunchScreen.storyboard */,
+				FB879CA427BB8CB700107673 /* Info.plist */,
+				FB879CA527BB8CB700107673 /* main.m */,
+				FBA03456285883080083A166 /* product.plist */,
+				FBA0345828588D9E0083A166 /* DrawImageSource */,
+				FB879CC827BB8D1500107673 /* Framwork */,
+				FB88CC7F27CCAF46001B9A9A /* MxDarwBoard-Bridging-Header.h */,
+			);
+			path = MxDarwBoard;
+			sourceTree = "<group>";
+		};
+		FB879CAE27BB8CB700107673 /* MxDarwBoardTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB879CAF27BB8CB700107673 /* MxDarwBoardTests.m */,
+			);
+			path = MxDarwBoardTests;
+			sourceTree = "<group>";
+		};
+		FB879CB827BB8CB700107673 /* MxDarwBoardUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FB879CB927BB8CB700107673 /* MxDarwBoardUITests.m */,
+				FB879CBB27BB8CB700107673 /* MxDarwBoardUITestsLaunchTests.m */,
+			);
+			path = MxDarwBoardUITests;
+			sourceTree = "<group>";
+		};
+		FB879CC827BB8D1500107673 /* Framwork */ = {
+			isa = PBXGroup;
+			children = (
+				FB88CCA127CF76E5001B9A9A /* MBProgressHUD */,
+				FBF6758827C7245E000A1A7A /* AFNetworking */,
+			);
+			path = Framwork;
+			sourceTree = "<group>";
+		};
+		FB879CD327BBAA9D00107673 /* MxCustomView */ = {
+			isa = PBXGroup;
+			children = (
+				FB879CD427BBAAD800107673 /* MxDrawBoardBaseView.h */,
+				FB879CD527BBAAD800107673 /* MxDrawBoardBaseView.m */,
+				FB879D0627BDF4E500107673 /* MXDrawView.h */,
+				FB879D0727BDF4E500107673 /* MXDrawView.m */,
+				FB879D0927BDF53100107673 /* MxBezierPath.h */,
+				FB879D0A27BDF53100107673 /* MxBezierPath.m */,
+				FB879D1A27BF9BDB00107673 /* UIView+ColorOfPoint.h */,
+				FB879D1B27BF9BDB00107673 /* UIView+ColorOfPoint.m */,
+				FB879D1D27C3313A00107673 /* MxLightModelView.h */,
+				FB879D1E27C3313A00107673 /* MxLightModelView.m */,
+				FBF6757727C60FD4000A1A7A /* MxDrawBoardSettingView.h */,
+				FBF6757827C60FD4000A1A7A /* MxDrawBoardSettingView.m */,
+				FBF6757A27C617FA000A1A7A /* MxDrawBoardNavigationView.h */,
+				FBF6757B27C617FA000A1A7A /* MxDrawBoardNavigationView.m */,
+				FB88CC3E27C77478001B9A9A /* MxDrawBoardBottomSetView.h */,
+				FB88CC3F27C77478001B9A9A /* MxDrawBoardBottomSetView.m */,
+				FB88CC4127C7812B001B9A9A /* MxColorSelectViewController.h */,
+				FB88CC4227C7812B001B9A9A /* MxColorSelectViewController.m */,
+				FB88CC4427C86703001B9A9A /* MxCustomPopoverBackgroundView.h */,
+				FB88CC4527C86703001B9A9A /* MxCustomPopoverBackgroundView.m */,
+				FB88CC5A27C8C6A7001B9A9A /* MxDrawModelViewController.h */,
+				FB88CC5B27C8C6A7001B9A9A /* MxDrawModelViewController.m */,
+				FB88CC5D27C8C918001B9A9A /* DarwModelViewCell.h */,
+				FB88CC5E27C8C918001B9A9A /* DarwModelViewCell.m */,
+				FB88CC6027C8D76D001B9A9A /* DrawModelPopoverBackgroundView.h */,
+				FB88CC6127C8D76D001B9A9A /* DrawModelPopoverBackgroundView.m */,
+				FB88CC6327C8DDCA001B9A9A /* ProductModelView.h */,
+				FB88CC6427C8DDCA001B9A9A /* ProductModelView.m */,
+				FB88CC6627CA18D1001B9A9A /* MxLockButton.h */,
+				FB88CC6727CA18D1001B9A9A /* MxLockButton.m */,
+				FBA03453285862930083A166 /* MxShowImageView.h */,
+				FBA03454285862930083A166 /* MxShowImageView.m */,
+				FB15242C287670B200BF7C3C /* MxCountDownLabel.h */,
+				FB15242D287670B200BF7C3C /* MxCountDownLabel.m */,
+				FB2FD9302892202F0051E2C6 /* UILabel+Space.h */,
+				FB2FD9312892202F0051E2C6 /* UILabel+Space.m */,
+				FB879D1327BE3B5800107673 /* Model */,
+			);
+			path = MxCustomView;
+			sourceTree = "<group>";
+		};
+		FB879CDB27BCA41200107673 /* MxColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				FBE6799A27D7284B000CDF03 /* UIColor+Turn.h */,
+				FBE6799B27D7284B000CDF03 /* UIColor+Turn.m */,
+				FB879CDC27BCA43A00107673 /* MxColorPicker.h */,
+				FB879CDD27BCA43A00107673 /* MxColorPicker.m */,
+				FB879CDF27BCA45600107673 /* MxColorWheelView.h */,
+				FB879CE027BCA45600107673 /* MxColorWheelView.m */,
+				FB879CE227BCA47200107673 /* MxColorSlider.h */,
+				FB879CE327BCA47200107673 /* MxColorSlider.m */,
+				FB879CE527BCA8E200107673 /* MxPickerViewController.h */,
+				FB879CE627BCA8E200107673 /* MxPickerViewController.m */,
+			);
+			path = MxColorPicker;
+			sourceTree = "<group>";
+		};
+		FB879D1327BE3B5800107673 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FB879D1427BE3B7900107673 /* MxPointModel.h */,
+				FB879D1527BE3B7900107673 /* MxPointModel.m */,
+				FB88CC9E27CE1FB0001B9A9A /* LocationModel.h */,
+				FB88CC9F27CE1FB0001B9A9A /* LocationModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FB88CC4A27C888AF001B9A9A /* Developer */ = {
+			isa = PBXGroup;
+			children = (
+				FB88CC4B27C888FB001B9A9A /* DeveloperDrawViewController.h */,
+				FB88CC4C27C888FB001B9A9A /* DeveloperDrawViewController.m */,
+				FB88CC4E27C8A6B3001B9A9A /* DeveloperNavigaSetView.h */,
+				FB88CC4F27C8A6B3001B9A9A /* DeveloperNavigaSetView.m */,
+				FB88CC5127C8AB49001B9A9A /* DevelopManager.h */,
+				FB88CC5227C8AB49001B9A9A /* DevelopManager.m */,
+				FB88CC5427C8B023001B9A9A /* DevelopDrawBaseView.h */,
+				FB88CC5527C8B023001B9A9A /* DevelopDrawBaseView.m */,
+				FB88CC5727C8B452001B9A9A /* DevelopDrawView.h */,
+				FB88CC5827C8B452001B9A9A /* DevelopDrawView.m */,
+				FBE679A827D8927B000CDF03 /* DevelopShowImageViewController.h */,
+				FBE679A927D8927B000CDF03 /* DevelopShowImageViewController.m */,
+				FB849A22288A8A2E004778DA /* MxDebugDrawBoardViewController.h */,
+				FB849A23288A8A2E004778DA /* MxDebugDrawBoardViewController.m */,
+			);
+			path = Developer;
+			sourceTree = "<group>";
+		};
+		FB88CC7B27CCAD55001B9A9A /* MxMeshManager */ = {
+			isa = PBXGroup;
+			children = (
+				FB88CC8E27CCBA4F001B9A9A /* MXProvisionModels */,
+				FB88CC8B27CCBA3E001B9A9A /* MXProvisionViewController.h */,
+				FB88CC8927CCBA3E001B9A9A /* MXProvisionViewController.m */,
+				FB88CC7C27CCAD89001B9A9A /* MxMeshManager.h */,
+				FB88CC7D27CCAD89001B9A9A /* MxMeshManager.m */,
+				FB88CC9527CCC47D001B9A9A /* MxDeviceListViewController.h */,
+				FB88CC9627CCC47D001B9A9A /* MxDeviceListViewController.m */,
+				FB849A1F2888FA53004778DA /* MxNoGroupDeviceListViewController.h */,
+				FB849A202888FA53004778DA /* MxNoGroupDeviceListViewController.m */,
+				FB88CC8627CCB698001B9A9A /* MxAddDeviceContoller.h */,
+				FB88CC8727CCB698001B9A9A /* MxAddDeviceContoller.m */,
+				FB88CC9327CCBAFC001B9A9A /* AppInfo.h */,
+				FB88CC9227CCBAFC001B9A9A /* AppInfo.m */,
+				FB88CC9827CCCB51001B9A9A /* PlanViewController.h */,
+				FB88CC9927CCCB51001B9A9A /* PlanViewController.m */,
+				FB15242F2876900200BF7C3C /* MxMessageManager.h */,
+				FB1524302876900200BF7C3C /* MxMessageManager.m */,
+			);
+			path = MxMeshManager;
+			sourceTree = "<group>";
+		};
+		FB88CC8E27CCBA4F001B9A9A /* MXProvisionModels */ = {
+			isa = PBXGroup;
+			children = (
+				FB88CC8F27CCBA4F001B9A9A /* MXBluetoothProvisionModel.h */,
+				FB88CC9027CCBA4F001B9A9A /* MXBluetoothProvisionModel.m */,
+			);
+			path = MXProvisionModels;
+			sourceTree = "<group>";
+		};
+		FB88CCA127CF76E5001B9A9A /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				FB622F0628816D8800DEDE85 /* MBProgressHUD+LMJ.h */,
+				FB622F0728816D8800DEDE85 /* MBProgressHUD+LMJ.m */,
+				FB88CCA227CF76E5001B9A9A /* MBProgressHUD.m */,
+				FB88CCA327CF76E5001B9A9A /* MBProgressHUD.h */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		FBA0345828588D9E0083A166 /* DrawImageSource */ = {
+			isa = PBXGroup;
+			children = (
+				FBA0345928588D9E0083A166 /* 20220226141320628.png */,
+				FBA0345A28588D9E0083A166 /* 20220226141306909.png */,
+				FBA0345B28588D9E0083A166 /* 20220226141251923.png */,
+				FBA0345C28588D9E0083A166 /* 20220226141256850.png */,
+				FBA0345D28588D9E0083A166 /* 20220226141314521.png */,
+				FBA0345E28588D9E0083A166 /* 20220226141301992.png */,
+			);
+			path = DrawImageSource;
+			sourceTree = "<group>";
+		};
+		FBE1B8042893B71E005EFCE2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FBE1B80A2893B71E005EFCE2 /* MeshSDK.framework */,
+				FBE1B80C2893B71E005EFCE2 /* nRFMeshProvision.framework */,
+				FBE1B80E2893B71E005EFCE2 /* CryptoSwift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FBE1B80F2893B7EF005EFCE2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FBE679A027D877E5000CDF03 /* MxTool */ = {
+			isa = PBXGroup;
+			children = (
+				FBE679A427D87839000CDF03 /* UIImage+MxTool.h */,
+				FBE679A527D87839000CDF03 /* UIImage+MxTool.m */,
+				FB849A1C2886B0DE004778DA /* MxTimer.h */,
+				FB849A1D2886B0DE004778DA /* MxTimer.m */,
+			);
+			path = MxTool;
+			sourceTree = "<group>";
+		};
+		FBF6758027C62138000A1A7A /* MxNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				FBF6758127C62196000A1A7A /* MxUploadImageManager.h */,
+				FBF6758227C62196000A1A7A /* MxUploadImageManager.m */,
+			);
+			path = MxNetwork;
+			sourceTree = "<group>";
+		};
+		FBF6758827C7245E000A1A7A /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				FBF6758927C7245E000A1A7A /* LICENSE */,
+				FBF6758A27C7245E000A1A7A /* README.md */,
+				FBF6758B27C7245E000A1A7A /* UIKit+AFNetworking */,
+				FBF6759F27C7245E000A1A7A /* AFNetworking */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		FBF6758B27C7245E000A1A7A /* UIKit+AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				FBF6758C27C7245E000A1A7A /* WKWebView+AFNetworking.h */,
+				FBF6758D27C7245E000A1A7A /* UIProgressView+AFNetworking.m */,
+				FBF6758E27C7245E000A1A7A /* UIButton+AFNetworking.h */,
+				FBF6758F27C7245E000A1A7A /* UIRefreshControl+AFNetworking.m */,
+				FBF6759027C7245E000A1A7A /* UIImageView+AFNetworking.h */,
+				FBF6759127C7245E000A1A7A /* AFImageDownloader.h */,
+				FBF6759227C7245E000A1A7A /* AFNetworkActivityIndicatorManager.m */,
+				FBF6759327C7245E000A1A7A /* AFAutoPurgingImageCache.h */,
+				FBF6759427C7245E000A1A7A /* UIActivityIndicatorView+AFNetworking.h */,
+				FBF6759527C7245E000A1A7A /* WKWebView+AFNetworking.m */,
+				FBF6759627C7245E000A1A7A /* UIProgressView+AFNetworking.h */,
+				FBF6759727C7245E000A1A7A /* UIImageView+AFNetworking.m */,
+				FBF6759827C7245E000A1A7A /* UIKit+AFNetworking.h */,
+				FBF6759927C7245E000A1A7A /* UIRefreshControl+AFNetworking.h */,
+				FBF6759A27C7245E000A1A7A /* UIButton+AFNetworking.m */,
+				FBF6759B27C7245E000A1A7A /* UIActivityIndicatorView+AFNetworking.m */,
+				FBF6759C27C7245E000A1A7A /* AFAutoPurgingImageCache.m */,
+				FBF6759D27C7245E000A1A7A /* AFNetworkActivityIndicatorManager.h */,
+				FBF6759E27C7245E000A1A7A /* AFImageDownloader.m */,
+			);
+			path = "UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
+		FBF6759F27C7245E000A1A7A /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				FBF675A027C7245E000A1A7A /* AFSecurityPolicy.h */,
+				FBF675A127C7245E000A1A7A /* AFNetworkReachabilityManager.h */,
+				FBF675A227C7245E000A1A7A /* AFURLSessionManager.h */,
+				FBF675A327C7245E000A1A7A /* AFURLRequestSerialization.h */,
+				FBF675A427C7245E000A1A7A /* AFURLResponseSerialization.m */,
+				FBF675A527C7245E000A1A7A /* AFHTTPSessionManager.m */,
+				FBF675A627C7245E000A1A7A /* AFURLResponseSerialization.h */,
+				FBF675A727C7245E000A1A7A /* AFURLSessionManager.m */,
+				FBF675A827C7245E000A1A7A /* AFURLRequestSerialization.m */,
+				FBF675A927C7245E000A1A7A /* AFNetworking.h */,
+				FBF675AA27C7245E000A1A7A /* AFNetworkReachabilityManager.m */,
+				FBF675AB27C7245E000A1A7A /* AFSecurityPolicy.m */,
+				FBF675AC27C7245E000A1A7A /* AFCompatibilityMacros.h */,
+				FBF675AD27C7245E000A1A7A /* AFHTTPSessionManager.h */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB879C8F27BB8CB500107673 /* MxDarwBoard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB879CBF27BB8CB700107673 /* Build configuration list for PBXNativeTarget "MxDarwBoard" */;
+			buildPhases = (
+				FB879C8C27BB8CB500107673 /* Sources */,
+				FB879C8D27BB8CB500107673 /* Frameworks */,
+				FB879C8E27BB8CB500107673 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MxDarwBoard;
+			productName = MxDarwBoard;
+			productReference = FB879C9027BB8CB500107673 /* MxDarwBoard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB879CAA27BB8CB700107673 /* MxDarwBoardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB879CC227BB8CB700107673 /* Build configuration list for PBXNativeTarget "MxDarwBoardTests" */;
+			buildPhases = (
+				FB879CA727BB8CB700107673 /* Sources */,
+				FB879CA827BB8CB700107673 /* Frameworks */,
+				FB879CA927BB8CB700107673 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB879CAD27BB8CB700107673 /* PBXTargetDependency */,
+			);
+			name = MxDarwBoardTests;
+			productName = MxDarwBoardTests;
+			productReference = FB879CAB27BB8CB700107673 /* MxDarwBoardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FB879CB427BB8CB700107673 /* MxDarwBoardUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB879CC527BB8CB700107673 /* Build configuration list for PBXNativeTarget "MxDarwBoardUITests" */;
+			buildPhases = (
+				FB879CB127BB8CB700107673 /* Sources */,
+				FB879CB227BB8CB700107673 /* Frameworks */,
+				FB879CB327BB8CB700107673 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB879CB727BB8CB700107673 /* PBXTargetDependency */,
+			);
+			name = MxDarwBoardUITests;
+			productName = MxDarwBoardUITests;
+			productReference = FB879CB527BB8CB700107673 /* MxDarwBoardUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB879C8827BB8CB500107673 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					FB879C8F27BB8CB500107673 = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
+					};
+					FB879CAA27BB8CB700107673 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = FB879C8F27BB8CB500107673;
+					};
+					FB879CB427BB8CB700107673 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = FB879C8F27BB8CB500107673;
+					};
+				};
+			};
+			buildConfigurationList = FB879C8B27BB8CB500107673 /* Build configuration list for PBXProject "MxDarwBoard" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB879C8727BB8CB500107673;
+			productRefGroup = FB879C9127BB8CB500107673 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FBE1B8042893B71E005EFCE2 /* Products */;
+					ProjectRef = FBE1B8032893B71E005EFCE2 /* MeshSDK.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				FB879C8F27BB8CB500107673 /* MxDarwBoard */,
+				FB879CAA27BB8CB700107673 /* MxDarwBoardTests */,
+				FB879CB427BB8CB700107673 /* MxDarwBoardUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FBE1B80A2893B71E005EFCE2 /* MeshSDK.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MeshSDK.framework;
+			remoteRef = FBE1B8092893B71E005EFCE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FBE1B80C2893B71E005EFCE2 /* nRFMeshProvision.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = nRFMeshProvision.framework;
+			remoteRef = FBE1B80B2893B71E005EFCE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FBE1B80E2893B71E005EFCE2 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = FBE1B80D2893B71E005EFCE2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB879C8E27BB8CB500107673 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FBA03457285883080083A166 /* product.plist in Resources */,
+				FBA0346228588D9E0083A166 /* 20220226141256850.png in Resources */,
+				FBA0346428588D9E0083A166 /* 20220226141301992.png in Resources */,
+				FBA0346328588D9E0083A166 /* 20220226141314521.png in Resources */,
+				FBF675AE27C7245E000A1A7A /* LICENSE in Resources */,
+				FBA0346128588D9E0083A166 /* 20220226141251923.png in Resources */,
+				FB879CA327BB8CB700107673 /* LaunchScreen.storyboard in Resources */,
+				FBA0345F28588D9E0083A166 /* 20220226141320628.png in Resources */,
+				FBF675AF27C7245E000A1A7A /* README.md in Resources */,
+				FB879CA027BB8CB700107673 /* Assets.xcassets in Resources */,
+				FB879C9E27BB8CB600107673 /* Main.storyboard in Resources */,
+				FBA0346028588D9E0083A166 /* 20220226141306909.png in Resources */,
+				FBF6758727C62D41000A1A7A /* TestImage01.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB879CA927BB8CB700107673 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB879CB327BB8CB700107673 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB879C8C27BB8CB500107673 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB88CC5327C8AB49001B9A9A /* DevelopManager.m in Sources */,
+				FB622F0828816D8800DEDE85 /* MBProgressHUD+LMJ.m in Sources */,
+				FB879D0B27BDF53100107673 /* MxBezierPath.m in Sources */,
+				FBF675B527C7245E000A1A7A /* UIButton+AFNetworking.m in Sources */,
+				FB15242E287670B200BF7C3C /* MxCountDownLabel.m in Sources */,
+				FB88CC8C27CCBA3E001B9A9A /* MXProvisionViewController.m in Sources */,
+				FB88CC4027C77478001B9A9A /* MxDrawBoardBottomSetView.m in Sources */,
+				FBF6758327C62196000A1A7A /* MxUploadImageManager.m in Sources */,
+				FB879CD127BBA21500107673 /* MxDrawBoardViewController.m in Sources */,
+				FB88CCA427CF76E5001B9A9A /* MBProgressHUD.m in Sources */,
+				FBF6757C27C617FA000A1A7A /* MxDrawBoardNavigationView.m in Sources */,
+				FBF675B227C7245E000A1A7A /* AFNetworkActivityIndicatorManager.m in Sources */,
+				FB88CC4327C7812B001B9A9A /* MxColorSelectViewController.m in Sources */,
+				FBF675B027C7245E000A1A7A /* UIProgressView+AFNetworking.m in Sources */,
+				FB1524312876900200BF7C3C /* MxMessageManager.m in Sources */,
+				FB879CD627BBAAD800107673 /* MxDrawBoardBaseView.m in Sources */,
+				FB879CDE27BCA43A00107673 /* MxColorPicker.m in Sources */,
+				FBE679A627D87839000CDF03 /* UIImage+MxTool.m in Sources */,
+				FB879D1C27BF9BDB00107673 /* UIView+ColorOfPoint.m in Sources */,
+				FBF675B127C7245E000A1A7A /* UIRefreshControl+AFNetworking.m in Sources */,
+				FBF675B827C7245E000A1A7A /* AFImageDownloader.m in Sources */,
+				FB879C9B27BB8CB500107673 /* ViewController.m in Sources */,
+				FBF675BB27C7245E000A1A7A /* AFURLSessionManager.m in Sources */,
+				FBF675B627C7245E000A1A7A /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				FB879C9527BB8CB500107673 /* AppDelegate.m in Sources */,
+				FBF6757927C60FD4000A1A7A /* MxDrawBoardSettingView.m in Sources */,
+				FB879CE427BCA47200107673 /* MxColorSlider.m in Sources */,
+				FB879D1F27C3313A00107673 /* MxLightModelView.m in Sources */,
+				FB88CC4D27C888FB001B9A9A /* DeveloperDrawViewController.m in Sources */,
+				FB88CC5027C8A6B3001B9A9A /* DeveloperNavigaSetView.m in Sources */,
+				FB849A1E2886B0DE004778DA /* MxTimer.m in Sources */,
+				FBE6799C27D7284B000CDF03 /* UIColor+Turn.m in Sources */,
+				FB879D0827BDF4E500107673 /* MXDrawView.m in Sources */,
+				FB88CC8827CCB698001B9A9A /* MxAddDeviceContoller.m in Sources */,
+				FBA03455285862930083A166 /* MxShowImageView.m in Sources */,
+				FB88CC9727CCC47D001B9A9A /* MxDeviceListViewController.m in Sources */,
+				FB88CC9A27CCCB51001B9A9A /* PlanViewController.m in Sources */,
+				FBF675B927C7245E000A1A7A /* AFURLResponseSerialization.m in Sources */,
+				FB879CA627BB8CB700107673 /* main.m in Sources */,
+				FB88CC5627C8B023001B9A9A /* DevelopDrawBaseView.m in Sources */,
+				FB88CC6227C8D76D001B9A9A /* DrawModelPopoverBackgroundView.m in Sources */,
+				FB2FD9322892202F0051E2C6 /* UILabel+Space.m in Sources */,
+				FB88CC5F27C8C918001B9A9A /* DarwModelViewCell.m in Sources */,
+				FB849A212888FA53004778DA /* MxNoGroupDeviceListViewController.m in Sources */,
+				FB879D0527BDE3F400107673 /* MxDrawBoardManager.m in Sources */,
+				FB88CC5C27C8C6A7001B9A9A /* MxDrawModelViewController.m in Sources */,
+				FBF675BC27C7245E000A1A7A /* AFURLRequestSerialization.m in Sources */,
+				FB879CE727BCA8E200107673 /* MxPickerViewController.m in Sources */,
+				FBF675B427C7245E000A1A7A /* UIImageView+AFNetworking.m in Sources */,
+				FBF675BE27C7245E000A1A7A /* AFSecurityPolicy.m in Sources */,
+				FB879D1627BE3B7900107673 /* MxPointModel.m in Sources */,
+				FB88CC9127CCBA4F001B9A9A /* MXBluetoothProvisionModel.m in Sources */,
+				FBF675B327C7245E000A1A7A /* WKWebView+AFNetworking.m in Sources */,
+				FB88CC8327CCAF69001B9A9A /* Test.swift in Sources */,
+				FBF675B727C7245E000A1A7A /* AFAutoPurgingImageCache.m in Sources */,
+				FB849A24288A8A2E004778DA /* MxDebugDrawBoardViewController.m in Sources */,
+				FB88CC7E27CCAD89001B9A9A /* MxMeshManager.m in Sources */,
+				FB88CC9427CCBAFC001B9A9A /* AppInfo.m in Sources */,
+				FB88CC6827CA18D1001B9A9A /* MxLockButton.m in Sources */,
+				FB88CC6527C8DDCA001B9A9A /* ProductModelView.m in Sources */,
+				FB88CCA027CE1FB0001B9A9A /* LocationModel.m in Sources */,
+				FB88CC4627C86703001B9A9A /* MxCustomPopoverBackgroundView.m in Sources */,
+				FBF675BA27C7245E000A1A7A /* AFHTTPSessionManager.m in Sources */,
+				FB88CC5927C8B452001B9A9A /* DevelopDrawView.m in Sources */,
+				FB879CE127BCA45600107673 /* MxColorWheelView.m in Sources */,
+				FBE679AA27D8927B000CDF03 /* DevelopShowImageViewController.m in Sources */,
+				FBF675BD27C7245E000A1A7A /* AFNetworkReachabilityManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB879CA727BB8CB700107673 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB879CB027BB8CB700107673 /* MxDarwBoardTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB879CB127BB8CB700107673 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB879CBC27BB8CB700107673 /* MxDarwBoardUITestsLaunchTests.m in Sources */,
+				FB879CBA27BB8CB700107673 /* MxDarwBoardUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB879CAD27BB8CB700107673 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB879C8F27BB8CB500107673 /* MxDarwBoard */;
+			targetProxy = FB879CAC27BB8CB700107673 /* PBXContainerItemProxy */;
+		};
+		FB879CB727BB8CB700107673 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB879C8F27BB8CB500107673 /* MxDarwBoard */;
+			targetProxy = FB879CB627BB8CB700107673 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB879C9C27BB8CB600107673 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB879C9D27BB8CB600107673 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FB879CA127BB8CB700107673 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB879CA227BB8CB700107673 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB879CBD27BB8CB700107673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FB879CBE27BB8CB700107673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB879CC027BB8CB700107673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 006;
+				DEVELOPMENT_TEAM = AYDR2YFZ4K;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MxDarwBoard/Framwork",
+				);
+				GCC_PREFIX_HEADER = ./MxDarwBoard/MxPrefixHeader.pch;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MxDarwBoard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MxDrawBoard;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "需要您授权蓝牙使用";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "请允许App保存图片到相册";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.2;
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.mxchip.drawboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MxDarwBoard/MxDarwBoard-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FB879CC127BB8CB700107673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 006;
+				DEVELOPMENT_TEAM = AYDR2YFZ4K;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MxDarwBoard/Framwork",
+				);
+				GCC_PREFIX_HEADER = ./MxDarwBoard/MxPrefixHeader.pch;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MxDarwBoard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MxDrawBoard;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "需要您授权蓝牙使用";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "请允许App保存图片到相册";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.2;
+				OTHER_LDFLAGS = "-all_load";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.mxchip.drawboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "MxDarwBoard/MxDarwBoard-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FB879CC327BB8CB700107673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UAW9U3UW5E;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.develop.MxDarwBoardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MxDarwBoard.app/MxDarwBoard";
+			};
+			name = Debug;
+		};
+		FB879CC427BB8CB700107673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UAW9U3UW5E;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.develop.MxDarwBoardTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MxDarwBoard.app/MxDarwBoard";
+			};
+			name = Release;
+		};
+		FB879CC627BB8CB700107673 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UAW9U3UW5E;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.develop.MxDarwBoardUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MxDarwBoard;
+			};
+			name = Debug;
+		};
+		FB879CC727BB8CB700107673 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UAW9U3UW5E;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.develop.MxDarwBoardUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MxDarwBoard;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB879C8B27BB8CB500107673 /* Build configuration list for PBXProject "MxDarwBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB879CBD27BB8CB700107673 /* Debug */,
+				FB879CBE27BB8CB700107673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB879CBF27BB8CB700107673 /* Build configuration list for PBXNativeTarget "MxDarwBoard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB879CC027BB8CB700107673 /* Debug */,
+				FB879CC127BB8CB700107673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB879CC227BB8CB700107673 /* Build configuration list for PBXNativeTarget "MxDarwBoardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB879CC327BB8CB700107673 /* Debug */,
+				FB879CC427BB8CB700107673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB879CC527BB8CB700107673 /* Build configuration list for PBXNativeTarget "MxDarwBoardUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB879CC627BB8CB700107673 /* Debug */,
+				FB879CC727BB8CB700107673 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB879C8827BB8CB500107673 /* Project object */;
+}
