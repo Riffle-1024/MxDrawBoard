@@ -62,6 +62,8 @@ typedef NS_ENUM(NSInteger,PaintingMode) {
 -(void)setAllPointWihtColor:(UIColor *)color;
 
 -(void)setModelType:(NSInteger )modeType;
+
+-(void)drawPointWtithLocation:(NSInteger )location Color:(UIColor *)color Complete:(void(^)(BOOL isUpdate,int location))comPlete;
 @end
 
 NS_ASSUME_NONNULL_END

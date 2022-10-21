@@ -206,7 +206,7 @@
 
     [self.mxDrawView setAllPointWihtColor:self.currentColor];
     if (self.isGroup) {
-        [MxMessageManager sendGroupMessage:[UIColor hsvStringFromColor:self.currentColor]];
+        [MxMessageManager  sendGroupMessage:[UIColor hsvStringFromColor:self.currentColor]];
     }
 //    for (int i = 0; i < 400; i++) {
 //        LocationModel *model = [[LocationModel alloc] initWithLocation:i Color:self.currentColor IsOpen:YES];

@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 //调试使用的接口
 +(void)sendDebugMessageWithLocalModel:(LocationModel *)locationModel;
 
++(void)sendDrawAllLightMessagezWithColro:(UIColor *)color Complete:(void(^)(LocationModel *locationModel))complete;
+
 +(void)cleanLightWithLocalModel:(LocationModel *)locationModel;
 
 //一键投屏

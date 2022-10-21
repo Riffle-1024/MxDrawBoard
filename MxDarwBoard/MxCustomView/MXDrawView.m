@@ -246,6 +246,11 @@
     }
 }
 
+-(void)drawPointWtithLocation:(NSInteger )location Color:(UIColor *)color Complete:(void(^)(BOOL isUpdate,int location))comPlete{
+    CGPoint point = CGPointFromString([[MxDrawBoardManager shareInstance].pointList objectAtIndex:location]);
+    [self updateViewWithPoint:point Color:color Complete:comPlete];
+}
+
 
 ////更新灯的颜色
 //-(void)updateViewWithLocation:(NSInteger)location Color:(UIColor *)color{

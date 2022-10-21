@@ -11,6 +11,8 @@
 #import "AppInfo.h"
 #import "MxTimer.h"
 
+typedef void(^SendMessageCallBack)(LocationModel *locationModel);
+
 @interface MxMessageManager()
 
 @property(nonatomic,copy) NSMutableArray <LocationModel *>*messageArray;
@@ -29,11 +31,22 @@
 
 @property (nonatomic,copy) NSMutableDictionary *messageArrayKey;//所有代发数据的key值，为设备的location
 
+@property (nonatomic,copy) SendMessageCallBack sendCallBack;
+
+@property (nonatomic,copy) NSString *cmdType;
+
 @end
 
 static MxMessageManager *instance = nil;
 
 @implementation MxMessageManager
+
+-(NSString *)cmdType{
+    if (!_cmdType) {
+        _cmdType = @"2401";
+    }
+    return _cmdType;
+}
 
 +(void)addLocationModel:(LocationModel *)model{
     [[MxMessageManager shareInstance] addLocationModel:model];
@@ -65,7 +78,7 @@ static MxMessageManager *instance = nil;
 
 
 -(void)addLocationModel:(LocationModel *)model{
-    
+    self.cmdType = @"2401";
     NSString * modelKey = [NSString stringWithFormat:@"%d",model.location];
     if ([self.messageArrayKey valueForKey:modelKey]) {
         [self deleteMessageWithModel:model];//先删除旧消息
@@ -126,7 +139,6 @@ static MxMessageManager *instance = nil;
         self.timer = [[MxTimer alloc] initWithTimeInterval:TimeInterval andWaitTime:0 eventHandler:^{
             
             if (self.messageArray.count) {
-                
                 LocationModel *model = [self.messageArray objectAtIndex:0];
                 DLog(@"send yuzhise message：%d",model.location);
                 self.currentModel = model;
@@ -159,7 +171,7 @@ static MxMessageManager *instance = nil;
 +(void)sendMessageWithLocalModel:(LocationModel *)locationModel{
     
     if (locationModel.isOpen) {
-        NSString * cmd = [NSString stringWithFormat:@"2401%@",locationModel.hsvColor];
+        NSString * cmd = [NSString stringWithFormat:@"%@%@",[MxMessageManager shareInstance].cmdType,locationModel.hsvColor];
         
         NSString *uuid = [MxDrawBoardManager getDeviceUUIDWithLocation:locationModel.location + 1];
         if (![MxMessageManager shareInstance].uuid) {
@@ -167,6 +179,9 @@ static MxMessageManager *instance = nil;
         }
         
         [MxMessageManager sendMeshMessage:cmd UUID:uuid];
+        if ([MxMessageManager shareInstance].sendCallBack && [[MxMessageManager shareInstance].cmdType isEqualToString:@"2301"]) {
+            [MxMessageManager shareInstance].sendCallBack(locationModel);
+        }
     }else{
         [MxMessageManager cleanLightWithLocalModel:locationModel];
     }
@@ -236,6 +251,21 @@ static MxMessageManager *instance = nil;
     NSString *uuid = [MxDrawBoardManager getDeviceUUIDWithLocation:locationModel.location + 1];
     
     [MxMessageManager sendMeshMessage:cmd UUID:uuid];
+}
+
++(void)sendDrawAllLightMessagezWithColro:(UIColor *)color Complete:(void(^)(LocationModel *locationModel))complete{
+    [MxMessageManager shareInstance].sendCallBack = complete;
+    [[MxMessageManager shareInstance].messageArray removeAllObjects];
+    [MxMessageManager shareInstance].cmdType = @"2301";
+    for (int i = 0; i < [MxDrawBoardManager shareInstance].pointList.count; i++) {
+        UIColor *paintColor = color;
+        LocationModel *locationModel = [[LocationModel alloc] initWithLocation:i Color:paintColor IsOpen:YES];
+        [[MxMessageManager shareInstance].messageArray addObject:locationModel];
+    }
+    if ([MxMessageManager shareInstance].meshIsConnect && [MxMessageManager shareInstance].messageArray.count) {
+        [[MxMessageManager shareInstance] startSendMessage];
+    }
+    
 }
 
 +(void)sendGroupMessage:(NSString*)hsvColor{

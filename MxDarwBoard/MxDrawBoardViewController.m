@@ -49,9 +49,28 @@
 
 @property (nonatomic,strong) MxShowImageView *showImageView;
 
+@property (nonatomic,strong)  UIButton *drawAllLightBtn;
+
+@property(nonatomic,assign) BOOL isSingle;//单灯控制
+
+@property(nonatomic,assign) BOOL isGroup;//群组控制
+
+@property(nonatomic,strong) UIView *maskView;
+
+@property(nonatomic,strong) UIColor *currentColor;
+
 @end
 
 @implementation MxDrawBoardViewController
+
+-(UIView *)maskView{
+    if (!_maskView) {
+        _maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, Screen_WIDTH, Screen_HEIGHT)];
+        _maskView.backgroundColor = [UIColor clearColor];
+        [self.view addSubview:_maskView];
+    }
+    return _maskView;
+}
 
 
 -(NSMutableDictionary *)drawPointDic{
@@ -80,6 +99,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isShowSetView = YES;
+    self.currentColor = [UIColor redColor];
     MxDrawBoardBaseView * baseView = [[MxDrawBoardBaseView alloc] initWithFrame:self.view.bounds];
     self.view = baseView;
 //    self.customColorBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -107,9 +127,11 @@
 //    [self.mxDrawView setModelType:modeType];
     [self.mxDrawView setModelType:0];
     [self.view addSubview:self.mxDrawView];
+    [self.mxDrawView setLineColor:self.currentColor];
     
     self.mxDrawView.delegate = self;
     [self initSettingView];
+    [self initBottomBtnViews];
     [self initLockBtn];
     [self initDevelopBtn];
     [MxMeshManager initMeshManager];
@@ -179,6 +201,34 @@
 }
 
 
+-(void)initBottomBtnViews{
+    UIButton *singleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [singleBtn setBackgroundColor:[UIColor blackColor]];
+    [singleBtn setTitle:@"单灯调试模式" forState:UIControlStateNormal];
+    singleBtn.layer.cornerRadius = FIT_TO_IPAD_VER_VALUE(9);
+    singleBtn.frame = CGRectMake(Screen_WIDTH/2 + FIT_TO_IPAD_VER_VALUE(350) , Screen_HEIGHT - FIT_TO_IPAD_VER_VALUE(70), FIT_TO_IPAD_VER_VALUE(130), FIT_TO_IPAD_VER_VALUE(60));
+    [singleBtn addTarget:self action:@selector(singleBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:singleBtn];
+    
+    
+    self.drawAllLightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.drawAllLightBtn setBackgroundColor:[UIColor blackColor]];
+    [self.drawAllLightBtn setTitle:@"绘制所有灯" forState:UIControlStateNormal];
+    self.drawAllLightBtn.layer.cornerRadius = FIT_TO_IPAD_VER_VALUE(9);
+    self.drawAllLightBtn.frame = CGRectMake(Screen_WIDTH/2 + FIT_TO_IPAD_VER_VALUE(180) , Screen_HEIGHT - FIT_TO_IPAD_VER_VALUE(70), FIT_TO_IPAD_VER_VALUE(100), FIT_TO_IPAD_VER_VALUE(60));
+    [self.drawAllLightBtn addTarget:self action:@selector(drawAllLightBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.drawAllLightBtn];
+    self.drawAllLightBtn.hidden = YES;
+
+    UIButton *groupProjectionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [groupProjectionBtn setBackgroundColor:[UIColor blackColor]];
+    [groupProjectionBtn setTitle:@"群组投屏" forState:UIControlStateNormal];
+    groupProjectionBtn.layer.cornerRadius = FIT_TO_IPAD_VER_VALUE(9);
+    groupProjectionBtn.frame = CGRectMake(Screen_WIDTH/2 - FIT_TO_IPAD_VER_VALUE(500), Screen_HEIGHT - FIT_TO_IPAD_VER_VALUE(70), FIT_TO_IPAD_VER_VALUE(100), FIT_TO_IPAD_VER_VALUE(60));
+    [groupProjectionBtn addTarget:self action:@selector(groupProjectionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:groupProjectionBtn];
+}
+
 -(void)initLockBtn{
     self.lockBtn = [MxLockButton buttonWithType:UIButtonTypeCustom];
     self.lockBtn.frame = CGRectMake(Screen_WIDTH - FIT_TO_IPAD_VER_VALUE(64), Screen_HEIGHT/2 - FIT_TO_IPAD_VER_VALUE(22), FIT_TO_IPAD_VER_VALUE(44), FIT_TO_IPAD_VER_VALUE(44));
@@ -245,35 +295,36 @@
         sender.selected = YES;
     }
     
-        DLog(@"[self.drawLocationDic allKeys]:%@",[self.drawLocationDic allKeys]);
+//        DLog(@"[self.drawLocationDic allKeys]:%@",[self.drawLocationDic allKeys]);
       NSArray * allKeys = [self.drawLocationDic allKeys];
-      for (NSString * key in allKeys) {
+//      for (NSString * key in allKeys) {
 //          LocationModel *pointModel = [self.drawPointDic objectForKey:key];
-          LocationModel *locationModel = [self.drawLocationDic objectForKey:key];
-            DLog(@"location:%d,hexColoer:%@,isOpen:%d",locationModel.location,locationModel.hexColor,locationModel.isOpen);
-      }
-        DLog(@"start touping");
+//          LocationModel *locationModel = [self.drawLocationDic objectForKey:key];
+//            DLog(@"location:%d,hexColoer:%@,isOpen:%d",locationModel.location,locationModel.hexColor,locationModel.isOpen);
+//      }
+//        DLog(@"start touping");
         MxCountDownLabel *countLabel = [[MxCountDownLabel alloc] initWithFrame:CGRectMake(0, 0, Screen_WIDTH, Screen_HEIGHT)];
         countLabel.center = self.view.center;
         countLabel.font = [UIFont boldSystemFontOfSize:FIT_TO_IPAD_VER_VALUE(100)];
         countLabel.textColor = [UIColor blueColor];
     NSInteger messageCount = [MxMessageManager getWaitSendMessageCount];
-    DLog(@"message count:%ld,meimiao xiaoxi shu：%ld",messageCount,messageCount);
+//    DLog(@"message count:%ld,meimiao xiaoxi shu：%ld",messageCount,messageCount);
     if (TimeInterval * messageCount > 3) {
 //        float result = messageCount/(MseeageAccount);
         int time = ceil(TimeInterval * messageCount);
         countLabel.count = time;
-        DLog(@"daojishishijian:%d",time);
+//        DLog(@"daojishishijian:%d",time);
     }else{
         countLabel.count = 3; //不设置的话，默认是3
     }
         
         [self.view addSubview:countLabel];
-        
+    self.maskView.hidden = NO;
         [countLabel startCount:^{
-            DLog(@"daojishijieshu，kaishitouping~~~~~");
+//            DLog(@"daojishijieshu，kaishitouping~~~~~");
             sender.selected = NO;
             [MxMessageManager showScreen];
+            self.maskView.hidden = YES;
         }];
     
    
@@ -286,6 +337,63 @@
         locationModel.isOpen = NO;
         locationModel.hexColor = [UIColor hexStringFromColor:DefaultBaseColor];
     }
+}
+
+
+-(void)singleBtnClick:(UIButton *)sender{
+    if (self.isGroup) {
+        return;
+    }
+    sender.selected = !sender.selected;
+    self.isSingle = sender.isSelected;
+    if (sender.isSelected) {
+        sender.backgroundColor = [UIColor redColor];
+    }else{
+        [sender setBackgroundColor:[UIColor blackColor]];
+    }
+}
+
+
+-(void)groupProjectionBtnClick:(UIButton *)sender{
+    if (self.isSingle) {
+        return;
+    }
+    sender.selected = !sender.selected;
+    self.isGroup = sender.isSelected;
+    if (sender.isSelected) {
+        sender.backgroundColor = [UIColor redColor];
+    }else{
+        [sender setBackgroundColor:[UIColor blackColor]];
+    }
+}
+
+-(void)drawAllLightBtnClick:(UIButton *)sender{
+    if (!self.isSingle) {
+        return;
+    }
+    MxCountDownLabel *countLabel = [[MxCountDownLabel alloc] initWithFrame:CGRectMake(0, 0, Screen_WIDTH, Screen_HEIGHT)];
+    countLabel.center = self.view.center;
+    countLabel.font = [UIFont boldSystemFontOfSize:FIT_TO_IPAD_VER_VALUE(100)];
+    countLabel.textColor = [UIColor blueColor];
+    NSInteger messageCount = [MxDrawBoardManager shareInstance].pointList.count;
+    if (TimeInterval * messageCount > 3) {
+        int time = ceil(TimeInterval * messageCount);
+        countLabel.count = time;
+    }else{
+        countLabel.count = 3; //不设置的话，默认是3
+    }
+    [self.view addSubview:countLabel];
+    self.maskView.hidden = NO;
+    [countLabel startCount:^{
+        self.maskView.hidden = YES;
+    }];
+    
+    [MxMessageManager sendDrawAllLightMessagezWithColro:self.currentColor Complete:^(LocationModel * _Nonnull locationModel) {
+        [self.mxDrawView drawPointWtithLocation:locationModel.location Color:self.currentColor Complete:^(BOOL isUpdate, int location) {
+            
+        }];
+    }];
+    
 }
 #pragma mark - MxPickerViewControllerDelegate -
 - (void)pickerControllerDidSelectColor:(MxPickerViewController *)controller {
@@ -347,7 +455,12 @@
 #pragma mark -MxDrawBoardNavigationViewDelegate-
 
 - (void)colorSeletFinish:(UIColor *)color{
+    self.currentColor = color;
     [self.mxDrawView setLineColor:color];
+    if (self.isGroup) {
+        [self.mxDrawView setAllPointWihtColor:self.currentColor];
+        [MxMessageManager sendGroupMessage:[UIColor hsvStringFromColor:self.currentColor]];
+    }
 }
 
 -(void)selectPhotoBtnClick{
