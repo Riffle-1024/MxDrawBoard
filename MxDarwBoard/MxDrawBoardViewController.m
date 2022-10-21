@@ -92,14 +92,20 @@
 //    [self.view addSubview:self.customColorBtn];
 
     
-    self.mxDrawView = [[MXDrawView alloc] initWithFrame:CGRectMake(Screen_WIDTH/2 - FIT_TO_IPAD_VER_VALUE(300) - FIT_TO_IPAD_VER_VALUE(3), FIT_TO_IPAD_VER_VALUE(75) - FIT_TO_IPAD_VER_VALUE(3), FIT_TO_IPAD_VER_VALUE(600) + FIT_TO_IPAD_VER_VALUE(6), FIT_TO_IPAD_VER_VALUE(600) + FIT_TO_IPAD_VER_VALUE(6))];
+    if (DrawBoardType == 1) {
+        self.mxDrawView = [[MXDrawView alloc] initWithFrame:CGRectMake(Screen_WIDTH/2 - FIT_TO_IPAD_VER_VALUE(300) - FIT_TO_IPAD_VER_VALUE(3), FIT_TO_IPAD_VER_VALUE(225) - FIT_TO_IPAD_VER_VALUE(3), FIT_TO_IPAD_VER_VALUE(600) + FIT_TO_IPAD_VER_VALUE(6), FIT_TO_IPAD_VER_VALUE(300) + FIT_TO_IPAD_VER_VALUE(6))];
+    }else{
+        self.mxDrawView = [[MXDrawView alloc] initWithFrame:CGRectMake(Screen_WIDTH/2 - FIT_TO_IPAD_VER_VALUE(300) - FIT_TO_IPAD_VER_VALUE(3), FIT_TO_IPAD_VER_VALUE(75) - FIT_TO_IPAD_VER_VALUE(3), FIT_TO_IPAD_VER_VALUE(600) + FIT_TO_IPAD_VER_VALUE(6), FIT_TO_IPAD_VER_VALUE(600) + FIT_TO_IPAD_VER_VALUE(6))];
+    }
+    
+    
 //    NSInteger modeType = 0;
 //    NSString * type = [[NSUserDefaults standardUserDefaults] valueForKey:DrawModelType];
 //    if (type) {
 //        modeType = [type intValue];
 //    }
 //    [self.mxDrawView setModelType:modeType];
-    [self.mxDrawView setModelType:2];
+    [self.mxDrawView setModelType:0];
     [self.view addSubview:self.mxDrawView];
     
     self.mxDrawView.delegate = self;

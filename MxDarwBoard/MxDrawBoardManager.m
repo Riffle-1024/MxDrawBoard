@@ -196,12 +196,22 @@
 
 
 -(void)getAllPoint{
-    for (int i = 0; i < 400; i++) {
-        NSInteger pointX = 15 + i % 20 * 30 + 3;
-        NSInteger pointY = 15 + i/20 * 30 + 3;
-        CGPoint point = CGPointMake(pointX, pointY);
-        [[MxDrawBoardManager shareInstance].pointList addObject:NSStringFromCGPoint(point)];
+    if (DrawBoardType == 0) {
+        for (int i = 0; i < 400; i++) {
+            NSInteger pointX = 15 + i % 20 * 30 + 3;
+            NSInteger pointY = 15 + i/20 * 30 + 3;
+            CGPoint point = CGPointMake(pointX, pointY);
+            [[MxDrawBoardManager shareInstance].pointList addObject:NSStringFromCGPoint(point)];
+        }
+    }else if (DrawBoardType == 1){
+        for (int i = 0; i < 200; i++) {
+            NSInteger pointX = 15 + i % 20 * 30 + 3;
+            NSInteger pointY = 15 + i/20 * 30 + 3;
+            CGPoint point = CGPointMake(pointX, pointY);
+            [[MxDrawBoardManager shareInstance].pointList addObject:NSStringFromCGPoint(point)];
+        }
     }
+
       DLog(@"pointList:%@",[MxDrawBoardManager shareInstance].pointList);
 }
 @end
