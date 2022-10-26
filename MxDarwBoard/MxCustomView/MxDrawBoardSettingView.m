@@ -43,7 +43,7 @@
 -(void)layoutSubview{
     for (int i = 0; i < [self btnImageSelect].count; i++) {
         UIButton *setBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        setBtn.frame = CGRectMake(FIT_TO_IPAD_VER_VALUE(5), FIT_TO_IPAD_VER_VALUE(41) + i * FIT_TO_IPAD_VER_VALUE(75), FIT_TO_IPAD_VER_VALUE(44), FIT_TO_IPAD_VER_VALUE(60));
+        setBtn.frame = CGRectMake(FIT_TO_IPAD_VER_VALUE(5), FIT_TO_IPAD_VER_VALUE(20.5) + i * FIT_TO_IPAD_VER_VALUE(75), FIT_TO_IPAD_VER_VALUE(44), FIT_TO_IPAD_VER_VALUE(60));
         [setBtn setImage:[UIImage imageNamed:[[self btnImageSelect] objectAtIndex:i]] forState:UIControlStateSelected];
         [setBtn setImage:[UIImage imageNamed:[[self btnImageUnSelect] objectAtIndex:i]] forState:UIControlStateNormal];
         [setBtn setImage:[UIImage imageNamed:[[self btnImageSelect] objectAtIndex:i]] forState:UIControlStateHighlighted];

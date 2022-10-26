@@ -25,6 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(instancetype)shareInstance;
 
++(void)saveRecordColor:(UIColor *)color;
+
++(UIColor *)getRecordColor;
+
 -(NSInteger )addPoint:(CGPoint )point ColorString:(NSString *)clorString LineWidth:(NSInteger )lineWidth;
 +(void)needAddGroupWithValue:(NSString *)value Key:(NSString *)key;
 

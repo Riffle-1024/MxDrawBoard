@@ -431,7 +431,7 @@
 
 -(void)setAllPointWihtColor:(UIColor *)color{
     self.drawColor = color;
-    for (int i = 0; i < 400; i++) {
+    for (int i = 0; i < [MxDrawBoardManager shareInstance].pointList.count; i++) {
         int location = i;
         CGPoint point = CGPointFromString([[MxDrawBoardManager shareInstance].pointList objectAtIndex:location]);
         [self updateViewWithPoint:point Color:self.drawColor Complete:^(BOOL isUpdate, int location) {

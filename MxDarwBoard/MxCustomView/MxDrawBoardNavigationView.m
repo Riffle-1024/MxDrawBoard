@@ -80,12 +80,12 @@
     
     //分享
     
-    UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    shareBtn.frame = CGRectMake(Screen_WIDTH - FIT_TO_IPAD_VER_VALUE(116), FIT_TO_IPAD_VER_VALUE(27), FIT_TO_IPAD_VER_VALUE(30), FIT_TO_IPAD_VER_VALUE(30));
-//    shareBtn.backgroundColor = [UIColor redColor];
-    [shareBtn addTarget:self action:@selector(sharePhoto:) forControlEvents:UIControlEventTouchUpInside];
-    [shareBtn setImage:[UIImage imageNamed:@"icon_btn_share"] forState:UIControlStateNormal];
-    [self addSubview:shareBtn];
+//    UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    shareBtn.frame = CGRectMake(Screen_WIDTH - FIT_TO_IPAD_VER_VALUE(116), FIT_TO_IPAD_VER_VALUE(27), FIT_TO_IPAD_VER_VALUE(30), FIT_TO_IPAD_VER_VALUE(30));
+////    shareBtn.backgroundColor = [UIColor redColor];
+//    [shareBtn addTarget:self action:@selector(sharePhoto:) forControlEvents:UIControlEventTouchUpInside];
+//    [shareBtn setImage:[UIImage imageNamed:@"icon_btn_share"] forState:UIControlStateNormal];
+//    [self addSubview:shareBtn];
     
     
     //选择颜色的按钮

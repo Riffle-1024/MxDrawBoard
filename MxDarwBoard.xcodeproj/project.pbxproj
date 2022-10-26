@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB14F3112907CDC700E75A53 /* MxDrawBoardNewBottomSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB14F3102907CDC700E75A53 /* MxDrawBoardNewBottomSetView.m */; };
+		FB14F3172907DE3B00E75A53 /* MxRadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB14F3162907DE3B00E75A53 /* MxRadarView.m */; };
 		FB15242E287670B200BF7C3C /* MxCountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB15242D287670B200BF7C3C /* MxCountDownLabel.m */; };
 		FB1524312876900200BF7C3C /* MxMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1524302876900200BF7C3C /* MxMessageManager.m */; };
 		FB2FD9322892202F0051E2C6 /* UILabel+Space.m in Sources */ = {isa = PBXBuildFile; fileRef = FB2FD9312892202F0051E2C6 /* UILabel+Space.m */; };
@@ -134,6 +136,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB14F30F2907CDC700E75A53 /* MxDrawBoardNewBottomSetView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxDrawBoardNewBottomSetView.h; sourceTree = "<group>"; };
+		FB14F3102907CDC700E75A53 /* MxDrawBoardNewBottomSetView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxDrawBoardNewBottomSetView.m; sourceTree = "<group>"; };
+		FB14F3152907DE3B00E75A53 /* MxRadarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxRadarView.h; sourceTree = "<group>"; };
+		FB14F3162907DE3B00E75A53 /* MxRadarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxRadarView.m; sourceTree = "<group>"; };
 		FB15242C287670B200BF7C3C /* MxCountDownLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxCountDownLabel.h; sourceTree = "<group>"; };
 		FB15242D287670B200BF7C3C /* MxCountDownLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MxCountDownLabel.m; sourceTree = "<group>"; };
 		FB15242F2876900200BF7C3C /* MxMessageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MxMessageManager.h; sourceTree = "<group>"; };
@@ -444,6 +450,8 @@
 				FBF6757B27C617FA000A1A7A /* MxDrawBoardNavigationView.m */,
 				FB88CC3E27C77478001B9A9A /* MxDrawBoardBottomSetView.h */,
 				FB88CC3F27C77478001B9A9A /* MxDrawBoardBottomSetView.m */,
+				FB14F30F2907CDC700E75A53 /* MxDrawBoardNewBottomSetView.h */,
+				FB14F3102907CDC700E75A53 /* MxDrawBoardNewBottomSetView.m */,
 				FB88CC4127C7812B001B9A9A /* MxColorSelectViewController.h */,
 				FB88CC4227C7812B001B9A9A /* MxColorSelectViewController.m */,
 				FB88CC4427C86703001B9A9A /* MxCustomPopoverBackgroundView.h */,
@@ -462,6 +470,8 @@
 				FBA03454285862930083A166 /* MxShowImageView.m */,
 				FB15242C287670B200BF7C3C /* MxCountDownLabel.h */,
 				FB15242D287670B200BF7C3C /* MxCountDownLabel.m */,
+				FB14F3152907DE3B00E75A53 /* MxRadarView.h */,
+				FB14F3162907DE3B00E75A53 /* MxRadarView.m */,
 				FB2FD9302892202F0051E2C6 /* UILabel+Space.h */,
 				FB2FD9312892202F0051E2C6 /* UILabel+Space.m */,
 				FB879D1327BE3B5800107673 /* Model */,
@@ -886,6 +896,7 @@
 				FB88CC5F27C8C918001B9A9A /* DarwModelViewCell.m in Sources */,
 				FB849A212888FA53004778DA /* MxNoGroupDeviceListViewController.m in Sources */,
 				FB879D0527BDE3F400107673 /* MxDrawBoardManager.m in Sources */,
+				FB14F3112907CDC700E75A53 /* MxDrawBoardNewBottomSetView.m in Sources */,
 				FB88CC5C27C8C6A7001B9A9A /* MxDrawModelViewController.m in Sources */,
 				FBF675BC27C7245E000A1A7A /* AFURLRequestSerialization.m in Sources */,
 				FB879CE727BCA8E200107673 /* MxPickerViewController.m in Sources */,
@@ -905,6 +916,7 @@
 				FB88CC4627C86703001B9A9A /* MxCustomPopoverBackgroundView.m in Sources */,
 				FBF675BA27C7245E000A1A7A /* AFHTTPSessionManager.m in Sources */,
 				FB88CC5927C8B452001B9A9A /* DevelopDrawView.m in Sources */,
+				FB14F3172907DE3B00E75A53 /* MxRadarView.m in Sources */,
 				FB879CE127BCA45600107673 /* MxColorWheelView.m in Sources */,
 				FBE679AA27D8927B000CDF03 /* DevelopShowImageViewController.m in Sources */,
 				FBF675BD27C7245E000A1A7A /* AFNetworkReachabilityManager.m in Sources */,

@@ -11,6 +11,12 @@
 
 #define NeedAddGroupKey @"NeedAddGroupKey"
 
+@interface MxDrawBoardManager()
+
+@property(nonatomic,strong)UIColor *recodColor;
+
+@end
+
 @implementation MxDrawBoardManager
 
 +(instancetype)shareInstance{
@@ -21,6 +27,14 @@
     }) ;
     return instance;
     
+}
+
++(void)saveRecordColor:(UIColor *)color{
+    [MxDrawBoardManager shareInstance].recodColor = color;
+}
+
++(UIColor *)getRecordColor{
+    return [MxDrawBoardManager shareInstance].recodColor;
 }
 
 

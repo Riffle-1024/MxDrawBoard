@@ -26,8 +26,12 @@
 #import "MxCountDownLabel.h"
 #import "UIColor+Turn.h"
 #import "MxMessageManager.h"
+#import "MxDrawBoardNewBottomSetView.h"
+#import "MxRadarView.h"
+#import "MxTimer.h"
 
-@interface MxDrawBoardViewController ()<MxPickerViewControllerDelegate,MxDrawViewDelegate,MxDrawBoardSettingViewDelegate,MxDrawBoardNavigationViewDelegate,MxDrawBoardBottomSetViewDelegate,MesManagerConnectDelegate>
+
+@interface MxDrawBoardViewController ()<MxPickerViewControllerDelegate,MxDrawViewDelegate,MxDrawBoardSettingViewDelegate,MxDrawBoardNavigationViewDelegate,MxDrawBoardBottomSetViewDelegate,MesManagerConnectDelegate,MxDrawBoardNewBottomSetViewDelegate>
 
 @property (nonatomic, strong) MXDrawView *mxDrawView;
 
@@ -36,6 +40,8 @@
 @property (nonatomic,strong) MxDrawBoardNavigationView *navigaSetView;
 
 @property (nonatomic,strong) MxDrawBoardBottomSetView *bottomSetView;
+
+@property (nonatomic,strong) MxDrawBoardNewBottomSetView *boardBottomSetView;
 
 @property (nonatomic,strong) MxLockButton *lockBtn;
 
@@ -53,15 +59,23 @@
 
 @property(nonatomic,assign) BOOL isSingle;//单灯控制
 
-@property(nonatomic,assign) BOOL isGroup;//群组控制
+@property(nonatomic,assign) BOOL isGroup;//单灯控制
+
 
 @property(nonatomic,strong) UIView *maskView;
 
 @property(nonatomic,strong) UIColor *currentColor;
 
+@property (nonatomic, strong) MxRadarView * scanRadarView;
+
+@property (nonatomic,strong) MxTimer *timer;
+
+@property (nonatomic,assign) NSInteger currentIndex;
+
 @end
 
 @implementation MxDrawBoardViewController
+
 
 -(UIView *)maskView{
     if (!_maskView) {
@@ -95,6 +109,9 @@
     }
     return _showImageView;
 }
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -131,7 +148,7 @@
     
     self.mxDrawView.delegate = self;
     [self initSettingView];
-    [self initBottomBtnViews];
+//    [self initBottomBtnViews];
     [self initLockBtn];
     [self initDevelopBtn];
     [MxMeshManager initMeshManager];
@@ -172,10 +189,10 @@
 }
 
 -(void)initSettingView{
-    self.settingView = [[MxDrawBoardSettingView alloc] initWithFrame:CGRectMake(0, FIT_TO_IPAD_VER_VALUE(220), FIT_TO_IPAD_VER_VALUE(60), FIT_TO_IPAD_VER_VALUE(305))];
+    self.settingView = [[MxDrawBoardSettingView alloc] initWithFrame:CGRectMake(0, FIT_TO_IPAD_VER_VALUE(220), FIT_TO_IPAD_VER_VALUE(60), FIT_TO_IPAD_VER_VALUE(264))];
     self.settingView.delegate = self;
     [self.view addSubview:self.settingView];
-    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.settingView.bounds byRoundingCorners:UIRectCornerBottomRight | UIRectCornerTopRight cornerRadii:CGSizeMake(FIT_TO_IPAD_VER_VALUE(8),FIT_TO_IPAD_VER_VALUE(8))];
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.settingView.bounds byRoundingCorners:UIRectCornerBottomRight | UIRectCornerTopRight cornerRadii:CGSizeMake(FIT_TO_IPAD_VER_VALUE(18),FIT_TO_IPAD_VER_VALUE(18))];
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
     maskLayer.frame = self.settingView.bounds;
     maskLayer.path = maskPath.CGPath;
@@ -186,18 +203,26 @@
     self.navigaSetView.viewController = self;
     [self.view addSubview:self.navigaSetView];
     
-    self.bottomSetView = [[MxDrawBoardBottomSetView alloc] initWithFrame:CGRectMake(Screen_WIDTH/2 - FIT_TO_IPAD_VER_VALUE(80), Screen_HEIGHT - FIT_TO_IPAD_VER_VALUE(70), FIT_TO_IPAD_VER_VALUE(250), FIT_TO_IPAD_VER_VALUE(60))];
-    self.bottomSetView.delegate = self;
-    [self.view addSubview:self.bottomSetView];
+//    self.bottomSetView = [[MxDrawBoardBottomSetView alloc] initWithFrame:CGRectMake(Screen_WIDTH/2 - FIT_TO_IPAD_VER_VALUE(80), Screen_HEIGHT - FIT_TO_IPAD_VER_VALUE(70), FIT_TO_IPAD_VER_VALUE(250), FIT_TO_IPAD_VER_VALUE(60))];
+//    self.bottomSetView.delegate = self;
+//    [self.view addSubview:self.bottomSetView];
+//
+//
+//    UIButton *projectionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [projectionBtn setBackgroundColor:[UIColor blackColor]];
+//    [projectionBtn setTitle:@"投屏" forState:UIControlStateNormal];
+//    projectionBtn.layer.cornerRadius = FIT_TO_IPAD_VER_VALUE(9);
+//    projectionBtn.frame = CGRectMake(Screen_WIDTH/2 - FIT_TO_IPAD_VER_VALUE(170), Screen_HEIGHT - FIT_TO_IPAD_VER_VALUE(70), FIT_TO_IPAD_VER_VALUE(70), FIT_TO_IPAD_VER_VALUE(60));
+//    [projectionBtn addTarget:self action:@selector(projectionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:projectionBtn];
+        self.boardBottomSetView = [[MxDrawBoardNewBottomSetView alloc] initWithFrame:CGRectMake(Screen_WIDTH/2 - FIT_TO_IPAD_VER_VALUE(300), Screen_HEIGHT - FIT_TO_IPAD_VER_VALUE(70), FIT_TO_IPAD_VER_VALUE(600), FIT_TO_IPAD_VER_VALUE(60))];
+        self.boardBottomSetView.delegate = self;
+        [self.view addSubview:self.boardBottomSetView];
     
     
-    UIButton *projectionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [projectionBtn setBackgroundColor:[UIColor blackColor]];
-    [projectionBtn setTitle:@"投屏" forState:UIControlStateNormal];
-    projectionBtn.layer.cornerRadius = FIT_TO_IPAD_VER_VALUE(9);
-    projectionBtn.frame = CGRectMake(Screen_WIDTH/2 - FIT_TO_IPAD_VER_VALUE(170), Screen_HEIGHT - FIT_TO_IPAD_VER_VALUE(70), FIT_TO_IPAD_VER_VALUE(70), FIT_TO_IPAD_VER_VALUE(60));
-    [projectionBtn addTarget:self action:@selector(projectionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:projectionBtn];
+    
+    
+    
 }
 
 
@@ -220,13 +245,7 @@
     [self.view addSubview:self.drawAllLightBtn];
     self.drawAllLightBtn.hidden = YES;
 
-    UIButton *groupProjectionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [groupProjectionBtn setBackgroundColor:[UIColor blackColor]];
-    [groupProjectionBtn setTitle:@"群组投屏" forState:UIControlStateNormal];
-    groupProjectionBtn.layer.cornerRadius = FIT_TO_IPAD_VER_VALUE(9);
-    groupProjectionBtn.frame = CGRectMake(Screen_WIDTH/2 - FIT_TO_IPAD_VER_VALUE(500), Screen_HEIGHT - FIT_TO_IPAD_VER_VALUE(70), FIT_TO_IPAD_VER_VALUE(100), FIT_TO_IPAD_VER_VALUE(60));
-    [groupProjectionBtn addTarget:self action:@selector(groupProjectionBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:groupProjectionBtn];
+    
 }
 
 -(void)initLockBtn{
@@ -306,7 +325,6 @@
         MxCountDownLabel *countLabel = [[MxCountDownLabel alloc] initWithFrame:CGRectMake(0, 0, Screen_WIDTH, Screen_HEIGHT)];
         countLabel.center = self.view.center;
         countLabel.font = [UIFont boldSystemFontOfSize:FIT_TO_IPAD_VER_VALUE(100)];
-        countLabel.textColor = [UIColor blueColor];
     NSInteger messageCount = [MxMessageManager getWaitSendMessageCount];
 //    DLog(@"message count:%ld,meimiao xiaoxi shu：%ld",messageCount,messageCount);
     if (TimeInterval * messageCount > 3) {
@@ -330,6 +348,39 @@
    
 }
 
+
+-(void)screenProjection{
+    if (![self.drawLocationDic allKeys].count){
+        return;
+    }
+    
+    
+    _scanRadarView = [MxRadarView scanRadarViewWithRadius:FIT_TO_IPAD_VER_VALUE(170) angle:400 radarLineNum:5 hollowRadius:0];
+        [_scanRadarView showTargetView:self.view];
+    NSInteger messageCount = [MxMessageManager getWaitSendMessageCount];
+
+        
+    MxCountDownLabel *countLabel = [[MxCountDownLabel alloc] initWithFrame:CGRectMake(0, 0, Screen_WIDTH, Screen_HEIGHT)];
+    countLabel.center = _scanRadarView.center;
+    if (TimeInterval * messageCount > 3) {
+        int time = ceil(TimeInterval * messageCount);
+        countLabel.count = time;
+    }else{
+        countLabel.count = 3; //不设置的话，默认是3
+    }
+    [self.view addSubview:countLabel];
+    self.maskView.hidden = NO;
+    [countLabel startCount:^{
+        self->_maskView.hidden = YES;
+//        [MxMessageManager showScreen];
+        [self->_scanRadarView stopAnimation];
+        [self->_scanRadarView dismiss];
+        [self->_boardBottomSetView resetAllBtn];
+        [MxMessageManager showScreen];
+    }];
+    [_scanRadarView startAnimatian];
+}
+
 -(void)resetLocationModel{
     NSArray * allKeys = [self.drawLocationDic allKeys];
     for (NSString * key in allKeys) {
@@ -340,41 +391,25 @@
 }
 
 
--(void)singleBtnClick:(UIButton *)sender{
-    if (self.isGroup) {
-        return;
-    }
-    sender.selected = !sender.selected;
-    self.isSingle = sender.isSelected;
-    if (sender.isSelected) {
-        sender.backgroundColor = [UIColor redColor];
-    }else{
-        [sender setBackgroundColor:[UIColor blackColor]];
-    }
-}
 
 
--(void)groupProjectionBtnClick:(UIButton *)sender{
-    if (self.isSingle) {
-        return;
-    }
-    sender.selected = !sender.selected;
-    self.isGroup = sender.isSelected;
-    if (sender.isSelected) {
-        sender.backgroundColor = [UIColor redColor];
-    }else{
-        [sender setBackgroundColor:[UIColor blackColor]];
-    }
-}
+
 
 -(void)drawAllLightBtnClick:(UIButton *)sender{
-    if (!self.isSingle) {
+    if (!self.isSingle) {//群组投屏
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.mxDrawView setAllPointWihtColor:self.currentColor];
+            [MxMessageManager  sendGroupMessage:[UIColor hsvStringFromColor:self.currentColor]];
+            self.isGroup = NO;
+        });
         return;
     }
+    _scanRadarView = [MxRadarView scanRadarViewWithRadius:FIT_TO_IPAD_VER_VALUE(170) angle:400 radarLineNum:5 hollowRadius:0];
+        [_scanRadarView showTargetView:self.view];
+    [_scanRadarView showTargetView:self.view];
     MxCountDownLabel *countLabel = [[MxCountDownLabel alloc] initWithFrame:CGRectMake(0, 0, Screen_WIDTH, Screen_HEIGHT)];
     countLabel.center = self.view.center;
     countLabel.font = [UIFont boldSystemFontOfSize:FIT_TO_IPAD_VER_VALUE(100)];
-    countLabel.textColor = [UIColor blueColor];
     NSInteger messageCount = [MxDrawBoardManager shareInstance].pointList.count;
     if (TimeInterval * messageCount > 3) {
         int time = ceil(TimeInterval * messageCount);
@@ -385,14 +420,37 @@
     [self.view addSubview:countLabel];
     self.maskView.hidden = NO;
     [countLabel startCount:^{
-        self.maskView.hidden = YES;
+//        [MxMessageManager showScreen];
+        self->_maskView.hidden = YES;
+        [self->_scanRadarView stopAnimation];
+        [self->_scanRadarView dismiss];
     }];
-    
-    [MxMessageManager sendDrawAllLightMessagezWithColro:self.currentColor Complete:^(LocationModel * _Nonnull locationModel) {
-        [self.mxDrawView drawPointWtithLocation:locationModel.location Color:self.currentColor Complete:^(BOOL isUpdate, int location) {
-            
+    [_scanRadarView startAnimatian];
+    self.currentIndex = 0;
+    if (!self.timer) {
+        self.timer = [[MxTimer alloc] initWithTimeInterval:TimeInterval andWaitTime:0 eventHandler:^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.mxDrawView drawPointWtithLocation:self.currentIndex Color:self.currentColor Complete:^(BOOL isUpdate, int location) {
+                                
+                }];
+                self.currentIndex++;
+                if (self.currentIndex >= [MxDrawBoardManager shareInstance].pointList.count) {
+                    [self.timer pauseTimer];
+                }
+            });
+      
         }];
-    }];
+    }else{
+        DLog(@"jixu  sendMessage");
+        [self.timer resumeTimer];
+    }
+    
+//    [MxMessageManager sendDrawAllLightMessagezWithColro:self.currentColor Complete:^(LocationModel * _Nonnull locationModel) {
+//        [self.mxDrawView drawPointWtithLocation:locationModel.location Color:self.currentColor Complete:^(BOOL isUpdate, int location) {
+//
+//        }];
+//    }];
+    
     
 }
 #pragma mark - MxPickerViewControllerDelegate -
@@ -404,7 +462,9 @@
 #pragma mark - MxDrawViewDelegate -
 //改location的灯颜色发生改变，操作为新增或删除
 -(void)changeLocation:(int)location LocationModel:(LocationModel *)locationModel DrawOpeaType:(DrawOpeaType)drawOpeaType{
-    
+    if (self.isSingle) {
+        [MxMessageManager sendDebugMessageWithLocalModel:locationModel];
+    }else if(!self.isGroup){
     NSString *key = [NSString stringWithFormat:@"%d",location];
       DLog(@"loction:%@,hexColor:%@,hsvColor:%@",key,locationModel.hexColor,locationModel.hsvColor);
     
@@ -417,7 +477,7 @@
 //        [self.drawLocationDic removeObjectForKey:key];
 //        [MxMessageManager cleanLightWithLocalModel:locationModel];
 //    }
-    
+    }
 }
 
 -(void)changeLocationArray:(NSArray<LocationModel *> *)locationArray OpeaType:(DrawOpeaType)opeaType{
@@ -457,10 +517,6 @@
 - (void)colorSeletFinish:(UIColor *)color{
     self.currentColor = color;
     [self.mxDrawView setLineColor:color];
-    if (self.isGroup) {
-        [self.mxDrawView setAllPointWihtColor:self.currentColor];
-        [MxMessageManager sendGroupMessage:[UIColor hsvStringFromColor:self.currentColor]];
-    }
 }
 
 -(void)selectPhotoBtnClick{
@@ -561,6 +617,28 @@
     }
     [self.mxDrawView clear];
 }
+
+
+#pragma mark - MxDrawBoardNewBottomSetViewDelegate -
+
+
+-(void)newBottomViewSeleted:(NSInteger)index IsSelected:(BOOL)isSelected{
+    if (index == 0) {
+        self.isGroup = YES;
+        [self drawAllLightBtnClick:nil];
+    }else if (index == 1){
+        [self screenProjection];
+    }else{//开始投屏
+        
+        self.isSingle = isSelected;
+    }
+}
+
+-(void)selectAllLight{
+    [self drawAllLightBtnClick:nil];
+}
+
+
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     

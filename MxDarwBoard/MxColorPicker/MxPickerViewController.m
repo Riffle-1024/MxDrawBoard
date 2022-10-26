@@ -27,13 +27,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
         
+    self.view.backgroundColor = UIColorWithAlphaFromRGB(0x000000, 0.3);
     MxColorPicker *picker = [[MxColorPicker alloc] initWithFrame:self.view.bounds];
     picker.selectedColor = _selectedColor;
     picker.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [picker addTarget:self action:@selector(onColorChange:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:picker];
     
-    self.preferredContentSize = CGSizeMake(FIT_TO_IPAD_VER_VALUE(200), FIT_TO_IPAD_VER_VALUE(200));
+    self.preferredContentSize = CGSizeMake(FIT_TO_IPAD_VER_VALUE(202), FIT_TO_IPAD_VER_VALUE(250));
 }
 
 - (void)onColorChange:(MxColorPicker *)picker {
