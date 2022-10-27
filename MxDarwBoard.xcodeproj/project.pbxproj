@@ -1104,7 +1104,7 @@
 				GCC_PREFIX_HEADER = ./MxDarwBoard/MxPrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MxDarwBoard/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "展厅画板";
+				INFOPLIST_KEY_CFBundleDisplayName = "展厅灯板";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "需要您授权蓝牙使用";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "请允许App保存图片到相册";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1148,7 +1148,7 @@
 				GCC_PREFIX_HEADER = ./MxDarwBoard/MxPrefixHeader.pch;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MxDarwBoard/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "展厅画板";
+				INFOPLIST_KEY_CFBundleDisplayName = "展厅灯板";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "需要您授权蓝牙使用";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "请允许App保存图片到相册";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

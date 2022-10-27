@@ -360,7 +360,6 @@
     [self.drawLocationDic removeAllObjects];
     MxCountDownLabel *countLabel = [[MxCountDownLabel alloc] initWithFrame:CGRectMake(0, 0, Screen_WIDTH, Screen_HEIGHT)];
     NSInteger messageCount = [MxMessageManager getWaitSendMessageCount];
-    NSInteger operationsCount = [[MeshSDK sharedInstance].sendMessageQueue operationCount];
     if (TimeInterval * messageCount > 3) {
         int time = ceil(TimeInterval * messageCount);
         countLabel.count = time;
