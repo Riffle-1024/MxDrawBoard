@@ -61,6 +61,8 @@
 
 @property(nonatomic,assign) BOOL isGroup;//单灯控制
 
+@property(nonatomic,assign) BOOL isDrawAll;//单灯全亮
+
 
 @property(nonatomic,strong) UIView *maskView;
 
@@ -351,23 +353,32 @@
 
 -(void)screenProjection{
     if (![self.drawLocationDic allKeys].count){
+        [MxMessageManager showScreen];
+        [self.boardBottomSetView resetAllBtn];
         return;
     }
-    
-    
-    _scanRadarView = [MxRadarView scanRadarViewWithRadius:FIT_TO_IPAD_VER_VALUE(170) angle:400 radarLineNum:5 hollowRadius:0];
-        [_scanRadarView showTargetView:self.view];
-    NSInteger messageCount = [MxMessageManager getWaitSendMessageCount];
-
-        
+    [self.drawLocationDic removeAllObjects];
     MxCountDownLabel *countLabel = [[MxCountDownLabel alloc] initWithFrame:CGRectMake(0, 0, Screen_WIDTH, Screen_HEIGHT)];
-    countLabel.center = _scanRadarView.center;
+    NSInteger messageCount = [MxMessageManager getWaitSendMessageCount];
+    NSInteger operationsCount = [[MeshSDK sharedInstance].sendMessageQueue operationCount];
     if (TimeInterval * messageCount > 3) {
         int time = ceil(TimeInterval * messageCount);
         countLabel.count = time;
-    }else{
+    }else if(TimeInterval * messageCount > 1){
         countLabel.count = 3; //不设置的话，默认是3
+    }else if(messageCount != 0){
+        sleep(1);
+        [MxMessageManager showScreen];
+        [self.boardBottomSetView resetAllBtn];
+        return;
+    }else{
+        [MxMessageManager showScreen];
+        [self.boardBottomSetView resetAllBtn];
+        return;
     }
+    _scanRadarView = [MxRadarView scanRadarViewWithRadius:FIT_TO_IPAD_VER_VALUE(170) angle:400 radarLineNum:5 hollowRadius:0];
+        [_scanRadarView showTargetView:self.view];
+    countLabel.center = _scanRadarView.center;
     [self.view addSubview:countLabel];
     self.maskView.hidden = NO;
     [countLabel startCount:^{
@@ -379,6 +390,8 @@
         [MxMessageManager showScreen];
     }];
     [_scanRadarView startAnimatian];
+    
+    
 }
 
 -(void)resetLocationModel{
@@ -404,41 +417,48 @@
         });
         return;
     }
-    _scanRadarView = [MxRadarView scanRadarViewWithRadius:FIT_TO_IPAD_VER_VALUE(170) angle:400 radarLineNum:5 hollowRadius:0];
-        [_scanRadarView showTargetView:self.view];
-    [_scanRadarView showTargetView:self.view];
-    MxCountDownLabel *countLabel = [[MxCountDownLabel alloc] initWithFrame:CGRectMake(0, 0, Screen_WIDTH, Screen_HEIGHT)];
-    countLabel.center = self.view.center;
-    countLabel.font = [UIFont boldSystemFontOfSize:FIT_TO_IPAD_VER_VALUE(100)];
-    NSInteger messageCount = [MxDrawBoardManager shareInstance].pointList.count;
-    if (TimeInterval * messageCount > 3) {
-        int time = ceil(TimeInterval * messageCount);
-        countLabel.count = time;
-    }else{
-        countLabel.count = 3; //不设置的话，默认是3
-    }
-    [self.view addSubview:countLabel];
-    self.maskView.hidden = NO;
-    [countLabel startCount:^{
-//        [MxMessageManager showScreen];
-        self->_maskView.hidden = YES;
-        [self->_scanRadarView stopAnimation];
-        [self->_scanRadarView dismiss];
-    }];
-    [_scanRadarView startAnimatian];
+//    _scanRadarView = [MxRadarView scanRadarViewWithRadius:FIT_TO_IPAD_VER_VALUE(170) angle:400 radarLineNum:5 hollowRadius:0];
+//        [_scanRadarView showTargetView:self.view];
+//    [_scanRadarView showTargetView:self.view];
+//    MxCountDownLabel *countLabel = [[MxCountDownLabel alloc] initWithFrame:CGRectMake(0, 0, Screen_WIDTH, Screen_HEIGHT)];
+//    countLabel.center = self.view.center;
+//    countLabel.font = [UIFont boldSystemFontOfSize:FIT_TO_IPAD_VER_VALUE(100)];
+//    NSInteger messageCount = [MxDrawBoardManager shareInstance].pointList.count;
+//    if (TimeInterval * messageCount > 3) {
+//        int time = ceil(TimeInterval * messageCount);
+//        countLabel.count = time;
+//    }else{
+//        countLabel.count = 3; //不设置的话，默认是3
+//    }
+//    [self.view addSubview:countLabel];
+//    self.maskView.hidden = NO;
+//    [countLabel startCount:^{
+////        [MxMessageManager showScreen];
+//        self->_maskView.hidden = YES;
+//        [self->_scanRadarView stopAnimation];
+//        [self->_scanRadarView dismiss];
+//    }];
+//    [_scanRadarView startAnimatian];
     self.currentIndex = 0;
+    NSString * timeOutString = [[NSUserDefaults standardUserDefaults] valueForKey:@"set_time"];
+    if (!timeOutString) {
+        timeOutString = @"150";
+        [[NSUserDefaults standardUserDefaults] setValue:timeOutString forKey:@"set_time"];
+    }
+    float time = [timeOutString integerValue]/1000.00;
+
     if (!self.timer) {
-        self.timer = [[MxTimer alloc] initWithTimeInterval:TimeInterval andWaitTime:0 eventHandler:^{
+        self.timer = [[MxTimer alloc] initWithTimeInterval:time andWaitTime:0 eventHandler:^{
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.mxDrawView drawPointWtithLocation:self.currentIndex Color:self.currentColor Complete:^(BOOL isUpdate, int location) {
-                                
+
                 }];
                 self.currentIndex++;
                 if (self.currentIndex >= [MxDrawBoardManager shareInstance].pointList.count) {
                     [self.timer pauseTimer];
                 }
             });
-      
+
         }];
     }else{
         DLog(@"jixu  sendMessage");
@@ -449,6 +469,13 @@
 //        [self.mxDrawView drawPointWtithLocation:locationModel.location Color:self.currentColor Complete:^(BOOL isUpdate, int location) {
 //
 //        }];
+//    }];
+    
+//    [MxMessageManager inOrderDrawAllLightWithColro:self.currentColor Complete:^(NSInteger location, BOOL isNext) {
+//                [self.mxDrawView drawPointWtithLocation:location Color:self.currentColor Complete:^(BOOL isUpdate, int location) {
+//
+//                }];
+//        self->_isDrawAll = isNext;
 //    }];
     
     
@@ -464,15 +491,17 @@
 -(void)changeLocation:(int)location LocationModel:(LocationModel *)locationModel DrawOpeaType:(DrawOpeaType)drawOpeaType{
     if (self.isSingle) {
         [MxMessageManager sendDebugMessageWithLocalModel:locationModel];
-    }else if(!self.isGroup){
+//        [MxMessageManager newAddLocationModel:locationModel];
+    }else if(!self.isGroup && !self.isDrawAll){
     NSString *key = [NSString stringWithFormat:@"%d",location];
       DLog(@"loction:%@,hexColor:%@,hsvColor:%@",key,locationModel.hexColor,locationModel.hsvColor);
-    
 //    [self.drawPointDic setValue:locationModel forKey:key];
 //    if (drawOpeaType == AddPoint) {
         [self.drawLocationDic setValue:locationModel forKey:key];
 //        [MxMessageManager sendMessageWithLocalModel:locationModel];
         [MxMessageManager addLocationModel:locationModel];
+//        [MxMessageManager newAddLocationModel:locationModel];
+        
 //    }else{
 //        [self.drawLocationDic removeObjectForKey:key];
 //        [MxMessageManager cleanLightWithLocalModel:locationModel];
@@ -626,16 +655,24 @@
     if (index == 0) {
         self.isGroup = YES;
         [self drawAllLightBtnClick:nil];
-    }else if (index == 1){
+    }else if (index == 1){//开始投屏
         [self screenProjection];
-    }else{//开始投屏
-        
+    }else{
         self.isSingle = isSelected;
+        if (isSelected) {
+            [MxMessageManager setDrawType:1];
+        }else{
+            [MxMessageManager setDrawType:0];
+            self.isDrawAll = NO;
+        }
+        
     }
 }
 
 -(void)selectAllLight{
+    self.isDrawAll = YES;
     [self drawAllLightBtnClick:nil];
+    
 }
 
 

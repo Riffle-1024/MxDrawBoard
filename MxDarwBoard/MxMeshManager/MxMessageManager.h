@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MxMessageManager : NSObject
 
+
 +(void)setMeshNetWorkIsConnect:(BOOL)isConnect;
 
 +(void)addLocationModel:(LocationModel *)model;
@@ -38,6 +39,13 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)sendGroupMessage:(NSString*)hsvColor;
 
 +(void)cleanAllMessage;
+
++(void)newAddLocationModel:(LocationModel *)model;
+
++(void)inOrderDrawAllLightWithColro:(UIColor *)color Complete:(void(^)(NSInteger location,BOOL isNext))callBack;
+
+
++(void)setDrawType:(NSInteger)drawType;//0:普通模式（预制色），1：实时绘画模式
 
 @end
 

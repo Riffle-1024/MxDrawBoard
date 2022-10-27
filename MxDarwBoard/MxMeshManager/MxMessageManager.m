@@ -13,6 +13,8 @@
 
 typedef void(^SendMessageCallBack)(LocationModel *locationModel);
 
+typedef void(^NewSendMessageCallBack)(NSInteger location,BOOL isContinue);
+
 @interface MxMessageManager()
 
 @property(nonatomic,copy) NSMutableArray <LocationModel *>*messageArray;
@@ -33,7 +35,15 @@ typedef void(^SendMessageCallBack)(LocationModel *locationModel);
 
 @property (nonatomic,copy) SendMessageCallBack sendCallBack;
 
+@property (nonatomic,copy) NewSendMessageCallBack newSendCallBack;
+
 @property (nonatomic,copy) NSString *cmdType;
+
+@property (nonatomic,assign) BOOL isDrawAll;
+
+@property (nonatomic,strong) MxTimer *recentTimer;
+
+@property (nonatomic,assign) NSInteger retryCount;//重发次数
 
 @end
 
@@ -71,6 +81,7 @@ static MxMessageManager *instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [[MxMessageManager alloc] init];
+        instance.retryCount = 0;
     });
     return instance;
 }
@@ -158,6 +169,13 @@ static MxMessageManager *instance = nil;
 }
 
 
+
+
+
+
+
+
+
 -(void)sendMessageWithLocationModel:(LocationModel *)model{
     NSString *uuid = [MxDrawBoardManager getDeviceUUIDWithLocation:model.location + 1];
     NSString *cmdStr = [NSString stringWithFormat:@"2301%@",model.hsvColor];
@@ -178,7 +196,7 @@ static MxMessageManager *instance = nil;
             [MxMessageManager shareInstance].uuid = uuid;
         }
         
-        [MxMessageManager sendMeshMessage:cmd UUID:uuid];
+        [MxMessageManager sendMeshMessage:cmd UUID:uuid ElementIndex:locationModel.location];
         if ([MxMessageManager shareInstance].sendCallBack && [[MxMessageManager shareInstance].cmdType isEqualToString:@"2301"]) {
             [MxMessageManager shareInstance].sendCallBack(locationModel);
         }
@@ -199,11 +217,11 @@ static MxMessageManager *instance = nil;
     }];
 }
 
-+ (void)sendMeshMessage:(NSString *)message UUID:(NSString *)uuid{
++ (void)sendMeshMessage:(NSString *)message UUID:(NSString *)uuid ElementIndex:(NSInteger)elementIndex{
     DLog(@"send yuzhise message：%@,uuid:%@",message,uuid);
     NSString *msg = [message stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     msg = [msg stringByReplacingOccurrencesOfString:@"" withString:@" "];
-    [MxMeshManager sendMeshMessageWithOpCode:@"11" uuid:uuid elementIndex:0 Tid:nil message:msg retryCount:1 timeout:1 isHoldCallback:NO networkKey:nil callback:^(NSDictionary * _Nullable result) {
+    [MxMeshManager sendMeshMessageWithOpCode:@"12" uuid:uuid elementIndex:0 Tid:nil message:msg retryCount:1 timeout:1 isHoldCallback:NO networkKey:nil callback:^(NSDictionary * _Nullable result) {
 //        NSString *message = result[@"message"];
         DLog(@"message result:%@",result);
     }];
@@ -250,7 +268,7 @@ static MxMessageManager *instance = nil;
     
     NSString *uuid = [MxDrawBoardManager getDeviceUUIDWithLocation:locationModel.location + 1];
     
-    [MxMessageManager sendMeshMessage:cmd UUID:uuid];
+    [MxMessageManager sendMeshMessage:cmd UUID:uuid ElementIndex:locationModel.location];
 }
 
 +(void)sendDrawAllLightMessagezWithColro:(UIColor *)color Complete:(void(^)(LocationModel *locationModel))complete{
@@ -288,5 +306,119 @@ static MxMessageManager *instance = nil;
     [self.messageLock lock];
     [self.messageArray removeAllObjects];
     [self.messageLock unlock];
+}
+
+
+
+
+#pragma mark - 新的发送消息API-
+
++(void)newAddLocationModel:(LocationModel *)model{
+    [[MxMessageManager shareInstance] newAddLocationModel:model];
+}
+
+
+-(void)newAddLocationModel:(LocationModel *)model{
+    [self.messageArray addObject:model];
+    if (!self.isSending) {
+        [MxMessageManager newStartSendMessage];
+    }
+}
+
+
++(void)newStartSendMessage{
+    
+    if (![MxMessageManager shareInstance].recentTimer) {
+        [MxMessageManager shareInstance].recentTimer = [[MxTimer alloc] initWithTimeInterval:2.0f andWaitTime:0 eventHandler:^{
+            
+            if (![MxMessageManager shareInstance].isSending && [MxMessageManager shareInstance].messageArray.count > 0) {
+                [MxMessageManager newStartSendMessage];
+            }
+        }];
+    }
+    
+    if ([MxMessageManager shareInstance].messageArray.count > 0) {
+        [MxMessageManager shareInstance].isSending = YES;
+        LocationModel *model = [[MxMessageManager shareInstance].messageArray objectAtIndex:0];
+        [MxMessageManager newSendMessageWithLocationModel:model];
+    }else{
+        [MxMessageManager shareInstance].isDrawAll = NO;
+        [MxMessageManager shareInstance].isSending = NO;
+    }
+    
+}
+
+
++(void)newSendMessageWithLocationModel:(LocationModel *)locationModel{
+    if (locationModel.isOpen) {
+        NSString * cmd = [NSString stringWithFormat:@"%@%@",[MxMessageManager shareInstance].cmdType,locationModel.hsvColor];
+        
+        NSString *uuid = [MxDrawBoardManager getDeviceUUIDWithLocation:locationModel.location + 1];
+        if (![MxMessageManager shareInstance].uuid) {
+            [MxMessageManager shareInstance].uuid = uuid;
+        }
+        [MxMessageManager shareInstance].currentModel = locationModel;
+        [MxMessageManager newSendMeshMessage:cmd UUID:uuid ElementIndex:locationModel.location];
+
+    }else{
+        [MxMessageManager cleanLightWithLocalModel:locationModel];
+    }
+}
+
+
++(void)newSendMeshMessage:(NSString *)message UUID:(NSString *)uuid ElementIndex:(NSInteger)elementIndex{
+    NSString *msg = [message stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    msg = [msg stringByReplacingOccurrencesOfString:@"" withString:@" "];
+    [MxMeshManager sendMeshMessageWithOpCode:@"11" uuid:uuid elementIndex:0 Tid:nil message:msg retryCount:0 timeout:0 isHoldCallback:NO networkKey:nil callback:^(NSDictionary * _Nullable result) {
+//        NSString *message = result[@"message"];
+        DLog(@"message result:%@,location:%d",result,[MxMessageManager shareInstance].currentModel.location);
+        if ([result[@"code"] integerValue] == 0) {
+            [MxMessageManager shareInstance].retryCount = 0;
+            [[MxMessageManager shareInstance].messageArray removeObjectAtIndex:0];
+//            NSInteger location = [result[@"elementIndex"] integerValue];
+            if ([MxMessageManager shareInstance].newSendCallBack && [MxMessageManager shareInstance].isDrawAll) {
+                [MxMessageManager shareInstance].newSendCallBack([MxMessageManager shareInstance].currentModel.location,[MxMessageManager shareInstance].messageArray.count);
+            }
+        }else{
+//            [MxMessageManager shareInstance].retryCount++;
+//            if ([MxMessageManager shareInstance].retryCount < 3) {
+//
+//            }else{
+//                [MxMessageManager shareInstance].retryCount = 0;
+                if ([MxMessageManager shareInstance].messageArray.count > 1) {
+//                    [[MxMessageMan
+                    [[MxMessageManager shareInstance].messageArray insertObject:[MxMessageManager shareInstance].currentModel atIndex:[MxMessageManager shareInstance].messageArray.count - 1];
+                    [[MxMessageManager shareInstance].messageArray removeObjectAtIndex:0];
+                }
+//            }
+        }
+        [MxMessageManager newStartSendMessage];
+    }];
+}
+
+
+
++(void)inOrderDrawAllLightWithColro:(UIColor *)color Complete:(void(^)(NSInteger location,BOOL isNext))callBack{
+    [MxMessageManager shareInstance].newSendCallBack = callBack;
+    [[MxMessageManager shareInstance].messageArray removeAllObjects];
+    [MxMessageManager shareInstance].cmdType = @"2301";
+    [MxMessageManager shareInstance].isDrawAll = YES;
+    for (int i = 0; i < [MxDrawBoardManager shareInstance].pointList.count; i++) {
+        UIColor *paintColor = color;
+        LocationModel *locationModel = [[LocationModel alloc] initWithLocation:i Color:paintColor IsOpen:YES];
+        [[MxMessageManager shareInstance].messageArray addObject:locationModel];
+    }
+    if ([MxMessageManager shareInstance].meshIsConnect && [MxMessageManager shareInstance].messageArray.count) {
+        [MxMessageManager newStartSendMessage];
+    }
+}
+
+
++(void)setDrawType:(NSInteger)drawType{
+    if (drawType == 0) {
+        [MxMessageManager shareInstance].cmdType = @"2401";
+    }else{
+        [MxMessageManager shareInstance].cmdType = @"2301";
+    }
 }
 @end

@@ -14,8 +14,12 @@
 #import "MxNoGroupDeviceListViewController.h"
 #import "MxDebugDrawBoardViewController.h"
 
+
 @interface ViewController ()
 
+@property(nonatomic,copy)NSArray *timeArray;
+
+@property(nonatomic,strong)UIButton *tempBtn;
 
 @end
 
@@ -105,6 +109,49 @@
 //    } failure:^(NSError * _Nullable error) {
 //          DLog(@"图片上传失败：%@",error);
 //    }];
+    
+    UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectMake(Screen_WIDTH - FIT_TO_IPAD_VER_VALUE(360), Screen_HEIGHT - FIT_TO_IPAD_VER_VALUE(140), FIT_TO_IPAD_VER_VALUE(200), FIT_TO_IPAD_VER_VALUE(30))];
+    textLabel.text = @"跑马灯延迟时间";
+    textLabel.font = [UIFont systemFontOfSize:FIT_TO_IPAD_VER_VALUE(20)];
+    textLabel.textColor = [UIColor blueColor];
+    [self.view addSubview:textLabel];
+    
+    NSString * timeOutString = [[NSUserDefaults standardUserDefaults] valueForKey:@"set_time"];
+    if (!timeOutString) {
+        timeOutString = @"150";
+        [[NSUserDefaults standardUserDefaults] setValue:timeOutString forKey:@"set_time"];
+    }
+    self.timeArray = @[@"100",@"125",@"150",@"175",@"200",@"225"];
+    for (int i = 0; i < self.timeArray.count; i++) {
+        UIButton *setTimeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        setTimeBtn.frame = CGRectMake(Screen_WIDTH - FIT_TO_IPAD_VER_VALUE(360) + i * FIT_TO_IPAD_VER_VALUE(60),Screen_HEIGHT - FIT_TO_IPAD_VER_VALUE(100) , FIT_TO_IPAD_VER_VALUE(45), FIT_TO_IPAD_VER_VALUE(20));
+        setTimeBtn.tag = i;
+        [setTimeBtn setTitle:[NSString stringWithFormat:@"%@ms",self.timeArray[i]] forState:UIControlStateNormal];
+        [setTimeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        setTimeBtn.titleLabel.font = [UIFont systemFontOfSize:FIT_TO_IPAD_VER_VALUE(12)];
+        setTimeBtn.layer.borderWidth = 1;
+        setTimeBtn.layer.borderColor = [UIColor blackColor].CGColor;
+        setTimeBtn.layer.cornerRadius = FIT_TO_IPAD_VER_VALUE(3);
+        if ([timeOutString isEqualToString:self.timeArray[i]]) {
+            setTimeBtn.backgroundColor = [UIColor blueColor];
+            self.tempBtn = setTimeBtn;
+        }else{
+            setTimeBtn.backgroundColor = [UIColor whiteColor];
+        }
+        [setTimeBtn addTarget:self action:@selector(setTimeAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:setTimeBtn];
+    }
+}
+
+-(void)setTimeAction:(UIButton *)sender{
+    if (self.tempBtn == sender) {
+        return;
+    }
+    self.tempBtn.backgroundColor = [UIColor whiteColor];
+    sender.backgroundColor = [UIColor blueColor];
+    self.tempBtn = sender;
+    NSString * timeOutString = self.timeArray[sender.tag];
+    [[NSUserDefaults standardUserDefaults] setValue:timeOutString forKey:@"set_time"];
 }
 
 
