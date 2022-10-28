@@ -381,6 +381,9 @@
     [self.view addSubview:countLabel];
     self.maskView.hidden = NO;
     [countLabel startCount:^{
+        if ([MxMessageManager getWaitSendMessageCount] > 0) {
+            [MxMessageManager setDrawType:1];
+        }
         self->_maskView.hidden = YES;
 //        [MxMessageManager showScreen];
         [self->_scanRadarView stopAnimation];
@@ -492,14 +495,15 @@
         [MxMessageManager sendDebugMessageWithLocalModel:locationModel];
 //        [MxMessageManager newAddLocationModel:locationModel];
     }else if(!self.isGroup && !self.isDrawAll){
+        [MxMessageManager setDrawType:0];
     NSString *key = [NSString stringWithFormat:@"%d",location];
       DLog(@"loction:%@,hexColor:%@,hsvColor:%@",key,locationModel.hexColor,locationModel.hsvColor);
 //    [self.drawPointDic setValue:locationModel forKey:key];
 //    if (drawOpeaType == AddPoint) {
         [self.drawLocationDic setValue:locationModel forKey:key];
 //        [MxMessageManager sendMessageWithLocalModel:locationModel];
-        [MxMessageManager addLocationModel:locationModel];
-//        [MxMessageManager newAddLocationModel:locationModel];
+//        [MxMessageManager addLocationModel:locationModel];
+        [MxMessageManager newAddLocationModel:locationModel];
         
 //    }else{
 //        [self.drawLocationDic removeObjectForKey:key];

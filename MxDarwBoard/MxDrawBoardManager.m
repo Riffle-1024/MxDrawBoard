@@ -7,6 +7,7 @@
 
 #import "MxDrawBoardManager.h"
 
+
 #define SaveLightInfoKey @"SaveLightInfoKey"
 
 #define NeedAddGroupKey @"NeedAddGroupKey"

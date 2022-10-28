@@ -187,6 +187,17 @@ extension NetworkConnection: CBCentralManagerDelegate {
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral,
                         advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        if advertisementData["kCBAdvDataLocalName"] != nil{
+            print("信号强度：\(RSSI);kCBAdvDataLocalName:\(String(describing: advertisementData["kCBAdvDataLocalName"]!))")
+        }
+        if RSSI.intValue < -57 {
+            return
+        }
+        MeshSDK.sharedInstance.currenRssi = RSSI
+        if advertisementData["kCBAdvDataLocalName"] != nil{
+            MeshSDK.sharedInstance.currentDeviceName = String(describing: advertisementData["kCBAdvDataLocalName"]!)
+        }
+        
         // Is it a Network ID beacon?
         if let networkId = advertisementData.networkId {
             guard meshNetwork.matches(networkId: networkId) else {

@@ -67,7 +67,7 @@ isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bo
 
 #import "MBProgressHUD+LMJ.h"
 
-#define TimeInterval 0.21f
+#define TimeInterval 0.25f
 #define MseeageAccount 1/TimeInterval
 
 #define DrawModelType @"DrawModelType"

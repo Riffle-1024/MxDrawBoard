@@ -11,6 +11,7 @@
 #import "MxDrawModelViewController.h"
 #import "DrawModelPopoverBackgroundView.h"
 #import "MxPickerViewController.h"
+@import MeshSDK;
 
 
 @interface MxDrawBoardNavigationView ()<MxColorSelectViewControllerDelagate,MxDrawModelViewControllerDelegate,MxPickerViewControllerDelegate>
@@ -45,9 +46,9 @@
     [self addSubview:titleLabel];
     
     UIButton *modelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    modelBtn.frame = CGRectMake(Screen_WIDTH/2 - FIT_TO_IPAD_VER_VALUE(80), FIT_TO_IPAD_VER_VALUE(30), FIT_TO_IPAD_VER_VALUE(160), FIT_TO_IPAD_VER_VALUE(24));
-    [modelBtn setTitle:@"20x20" forState:UIControlStateNormal];
-    [modelBtn setTitle:@"18x18" forState:UIControlStateSelected];
+    modelBtn.frame = CGRectMake(Screen_WIDTH/2 - FIT_TO_IPAD_VER_VALUE(130), FIT_TO_IPAD_VER_VALUE(30), FIT_TO_IPAD_VER_VALUE(260), FIT_TO_IPAD_VER_VALUE(24));
+    [modelBtn setTitle:@"20x10" forState:UIControlStateNormal];
+//    [modelBtn setTitle:@"18x18" forState:UIControlStateSelected];
     [modelBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 //    [modelBtn addTarget:self action:@selector(modelBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:modelBtn];
@@ -101,6 +102,7 @@
 -(void)updateNavigatonMeshConnectStatus:(NSInteger)connectStatus{
     if (connectStatus == 1) {
         [self.modelBtn setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+        [self.modelBtn setTitle:[NSString stringWithFormat:@"20x10  %@:%@",[MeshSDK sharedInstance].currentDeviceName,[MeshSDK sharedInstance].currenRssi] forState:UIControlStateNormal];
     }else{
         [self.modelBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }

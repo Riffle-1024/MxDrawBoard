@@ -166,7 +166,7 @@ open class MeshSDK: NSObject {
     public var StatusCacheTimeout : TimeInterval = 120.0  //设备状态缓存超时时间
     var reconnectTimerCount: Int = 0   //重连超时
     var isMeshReconnect: Bool = false  //是否是自己发起的重连
-    public var messageDuration: TimeInterval = 0.1
+    public var messageDuration: TimeInterval = 0.16
     
     var tidNum : Int = Int(Date().timeIntervalSince1970) % 255
     
@@ -174,6 +174,10 @@ open class MeshSDK: NSObject {
     var seqUpdateInterval : UInt32 = 50
     
     public var sendMessageQueue: OperationQueue!  //发送的单播消息队列
+    
+    public var currenRssi:NSNumber = 0
+    
+    public var currentDeviceName:String = ""
     
     //指定Gatt直连设备
     //public var gattDeviceName : String!

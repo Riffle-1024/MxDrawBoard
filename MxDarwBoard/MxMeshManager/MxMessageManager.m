@@ -221,7 +221,7 @@ static MxMessageManager *instance = nil;
     DLog(@"send yuzhise message：%@,uuid:%@",message,uuid);
     NSString *msg = [message stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     msg = [msg stringByReplacingOccurrencesOfString:@"" withString:@" "];
-    [MxMeshManager sendMeshMessageWithOpCode:@"12" uuid:uuid elementIndex:0 Tid:nil message:msg retryCount:1 timeout:1 isHoldCallback:NO networkKey:nil callback:^(NSDictionary * _Nullable result) {
+    [MxMeshManager sendMeshMessageWithOpCode:@"11" uuid:uuid elementIndex:0 Tid:nil message:msg retryCount:1 timeout:0 isHoldCallback:NO networkKey:nil callback:^(NSDictionary * _Nullable result) {
 //        NSString *message = result[@"message"];
         DLog(@"message result:%@",result);
     }];
@@ -264,6 +264,7 @@ static MxMessageManager *instance = nil;
 }
 
 +(void)sendDebugMessageWithLocalModel:(LocationModel *)locationModel{
+//    DLog(@"send message with location :%d",locationModel.location);
     NSString * cmd = [NSString stringWithFormat:@"2301%@",locationModel.hsvColor];
     
     NSString *uuid = [MxDrawBoardManager getDeviceUUIDWithLocation:locationModel.location + 1];
